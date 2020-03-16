@@ -1,0 +1,20 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 0 issues that require attention
+--------------------------------------------------------------------------------
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'my_model.py'
+ outputting to 'mymodel.py'
+--------------------------------------------------------------------------------
+
+51:20: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+54:24: INFO: Renamed 'tf.train.get_global_step' to 'tf.compat.v1.train.get_global_step'
+59:20: INFO: tf.metrics.accuracy requires manual check. tf.metrics have been replaced with object oriented versions in TF 2.0 and after. The metric function calls have been converted to compat.v1 for backward compatibility. Please update these calls to the TF 2.0 versions.
+59:20: INFO: Renamed 'tf.metrics.accuracy' to 'tf.compat.v1.metrics.accuracy'
+--------------------------------------------------------------------------------
+

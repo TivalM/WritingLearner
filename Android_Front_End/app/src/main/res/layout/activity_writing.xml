@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.WritingActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="330dp"
+        android:layout_height="330dp"
+        android:background="@drawable/cell"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293">
+
+        <TextView
+
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/text_char"
+            android:textAllCaps="true"
+            android:textColor="#ED9E9E"
+            android:textSize="240sp" />
+
+        <com.example.writinglearner.MyWritingPad
+            android:id="@+id/writing_pad"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:penColor="@android:color/black" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="285dp"
+        android:layout_height="68dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.293">
+
+        <ImageButton
+            android:id="@+id/button_finish"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#00000000"
+            android:contentDescription="@string/img_finish"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/finished" />
+
+        <ImageButton
+            android:id="@+id/button_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#00000000"
+            android:contentDescription="@string/img_clear"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/clear" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView_test"
+        android:layout_width="362dp"
+        android:layout_height="351dp"
+        android:layout_marginBottom="224dp"
+        android:scaleType="centerInside"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/clear" />
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="317dp"-->
+    <!--        android:layout_height="320dp"-->
+    <!--        android:contentDescription="@string/cell_name"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.345"-->
+    <!--        app:srcCompat="@drawable/cell" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>

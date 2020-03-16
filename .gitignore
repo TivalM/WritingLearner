@@ -253,3 +253,7 @@ cython_debug/
 # static files generated from Django application using `collectstatic`
 media
 static
+
+#custom
+/Python_Back_End/HWDB1/test/*
+/Python_Back_End/HWDB1/train/*

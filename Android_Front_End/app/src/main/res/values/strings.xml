@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WritingLearner</string>
+    <string name="button_start">开始练习</string>
+    <string name="text_char">木</string>
+    <string name="cell_name">田字格</string>
+    <string name="img_clear">img_clear</string>
+    <string name="img_finish">img_finish</string>
+</resources>
