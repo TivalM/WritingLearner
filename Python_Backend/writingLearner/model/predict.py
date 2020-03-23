@@ -1,7 +1,6 @@
 # 预测
 import tensorflow as tf
 import numpy as np
-import imghdr
 import pickle
 
 HEIGHT = 64

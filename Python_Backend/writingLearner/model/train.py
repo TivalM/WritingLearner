@@ -1,7 +1,6 @@
 import pickle
 
 import tensorflow as tf
-import numpy as np
 from keras_preprocessing.image import ImageDataGenerator
 from tensorflow.keras import layers
 from tensorflow_core.python.keras.callbacks import ReduceLROnPlateau
