@@ -22,8 +22,8 @@ class Singleton(object):
 @Singleton
 class PredictModel():
     def __init__(self):
-        self.model = tf.keras.models.load_model('.\\writingLearner\\model\\src\\model_600w_epoch150.h5')
-        self.dict = pickle.load(open('.\\writingLearner\\model\\src\\char_dict_reversed', 'br'))
+        self.model = tf.keras.models.load_model('writingLearner/model/src/model_600w_epoch150.h5')
+        self.dict = pickle.load(open('writingLearner/model/src/char_dict_reversed', 'br'))
 
     def predict_char(self, image_str):
         def decode_and_resize(image_str):

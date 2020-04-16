@@ -1,3 +1,3 @@
 from writingLearner.models import User
 
-User.objects.all()
+User.objects.all();
