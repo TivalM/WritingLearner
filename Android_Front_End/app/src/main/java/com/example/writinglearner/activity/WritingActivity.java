@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.writinglearner.HttpUtil;
 import com.example.writinglearner.MyWritingPad;
 import com.example.writinglearner.R;
 import com.github.gcacace.signaturepad.views.SignaturePad;
@@ -35,6 +36,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+import okhttp3.Call;
 import okhttp3.MediaType;
 
 import okhttp3.OkHttpClient;
@@ -55,6 +57,7 @@ public class WritingActivity extends AppCompatActivity {
     Queue<String> chars = new LinkedList<>();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
     public static final int imageSize = 128;
+    OkHttpClient client = new OkHttpClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -241,41 +244,23 @@ public class WritingActivity extends AppCompatActivity {
         jsonObject.put("strokes", "");
         String json = jsonObject.toString();
         RequestBody body = RequestBody.create(JSON, json);
+        HttpUtil.sendPostRequest(url, body, new okhttp3.Callback() {
 
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
-
-        new Thread(() -> {
-            try {
-                OkHttpClient client = new OkHttpClient();
-                Response response = client.newCall(request).execute();
-                if (response.isSuccessful()) {
-                    //获取数据成功
-                    String res_json = response.body().string();
-                    Message message = Message.obtain();
-                    message.obj = res_json;
-                    message.what = 1;
-                    handler.handleMessage(message);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("http2", "Post Image Fail");
             }
-        }).start();
-//        call.enqueue(new Callback() {
-//            @Override
-//            public void onFailure(Call call, IOException e) {
-//                Log.d("http2", "http call failure");
-//                e.printStackTrace();
-//            }
-//
-//            @Override
-//            public void onResponse(Call call, Response response) throws IOException {
-//                resultStr[0] = response.body().toString();
-//            }
-//
-//        });
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                assert response.body() != null;
+                String res_json = response.body().string();
+                Message message = Message.obtain();
+                message.obj = res_json;
+                message.what = 1;
+                handler.handleMessage(message);
+            }
+        });
     }
 
     private void parseJsonWithJsonObject(Response response, String result) throws IOException {

@@ -1,0 +1,1584 @@
+nohup: ignoring input
+Watching for file changes with StatReloader
+2020-04-08 15:40:05.075496: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer.so.6'; dlerror: libnvinfer.so.6: cannot open shared object file: No such file or directory
+2020-04-08 15:40:05.075614: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libnvinfer_plugin.so.6'; dlerror: libnvinfer_plugin.so.6: cannot open shared object file: No such file or directory
+2020-04-08 15:40:05.075639: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:30] Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2020-04-08 15:41:15.347706: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2020-04-08 15:41:15.347753: E tensorflow/stream_executor/cuda/cuda_driver.cc:351] failed call to cuInit: UNKNOWN ERROR (303)
+2020-04-08 15:41:15.347778: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (VM-0-8-ubuntu): /proc/driver/nvidia/version does not exist
+2020-04-08 15:41:15.352599: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-04-08 15:41:15.587520: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2394445000 Hz
+2020-04-08 15:41:15.589126: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc23029c1d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-04-08 15:41:15.589146: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+[08/Apr/2020 15:41:19] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 51
+[08/Apr/2020 15:41:25] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:41:30] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:41:35] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:41:43] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:41:46] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:45:56] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:08] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:17] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:24] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:30] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:37] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:43] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 50
+[08/Apr/2020 15:46:50] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:46:56] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:47:03] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 51
+[08/Apr/2020 15:47:12] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:47:20] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:47:27] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:48:35] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:48:45] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:48:50] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:48:58] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 51
+[08/Apr/2020 15:49:03] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[08/Apr/2020 15:49:08] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 51
+----------------------------------------
+Exception happened during processing of request from ('180.108.218.14', 35155)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[08/Apr/2020 17:19:28] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x16²=¡ß?©')
+[08/Apr/2020 17:19:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[08/Apr/2020 17:19:28] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ÀûJ\x98º\x19Ü÷¢-\x13\x8b`úëk¿EÇáÅv^v\x178p.\x9f\x0eÎw\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[08/Apr/2020 17:19:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('61.219.11.153', 62912)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[08/Apr/2020 22:36:35] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03Ñ\x7fË')
+[08/Apr/2020 22:36:35] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /ip.ws.126.net:443
+[08/Apr/2020 23:01:24] "CONNECT ip.ws.126.net:443 HTTP/1.1" 404 1670
+----------------------------------------
+Exception happened during processing of request from ('36.6.57.1', 47309)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[09/Apr/2020 00:22:34] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¥-\tåðBxÿ¾ªc>h\x8c«ðjÿ \xad9·3x\x81\x86¹\tãÕ\x11\x12\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[09/Apr/2020 00:22:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 00:22:34] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03.Êyæ\x0eBÝu\r¾T\x19Ôý;\x03·C,E¤-nz\x99\x0bÂy[ð\x16t\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[09/Apr/2020 00:22:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 01:23:01] code 400, message Bad request syntax ("\x16\x03\x01\x00u\x01\x00\x00q\x03\x03\\\x82u´\x9e\x82\x99`\x9b;Ã,'uÕ½~J{={Q\x8c\x18¾ÿ\x90\x0c3ò\x0bÄ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À")
+[09/Apr/2020 01:23:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 01:23:13] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03\x0b°\x95\x15LËÇ\x97y\x93ù¨¨\x95þ³\x94qm\x83a)\x85½*dbF×CÕí\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[09/Apr/2020 01:23:13] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 01:24:01] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:39:34] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:39:48] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:40:41] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:40:50] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:52:48] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:54:39] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:54:45] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 01:59:40] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 02:00:36] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 02:00:51] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 02:01:04] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 02:02:20] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 02:02:42] "POST /writingLearner/recognize_char/ HTTP/1.1" 200 52
+[09/Apr/2020 07:22:16] code 400, message Bad request version ('ã\x9a\x10´J\x00\x00\x08\x00\x14\x00\x11\x00\x17\x00\x19\x01\x00\x00S\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+[09/Apr/2020 07:22:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 07:30:08] code 400, message Bad request syntax ('\x16\x03\x01\x00¬\x01\x00\x00¨\x03\x03sà\x8c²%ô&\x8aq¹¶ìü\x02Ë[±\x93u5$\x06\x82/$ÜK\x93]O»ô\x00\x00(À+À/\x00\x9eÌ©Ì¨ÌªÀ')
+[09/Apr/2020 07:30:08] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 10:17:20] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03¿%\\^Ùoº}>T¬n\x94ëæ4Ë\x08\x13Ê§v¨\x06¨s\x90);YÒR\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[09/Apr/2020 10:17:20] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('1.199.193.21', 58358)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[09/Apr/2020 11:05:48] code 400, message Bad request version ('\x00')
+[09/Apr/2020 11:05:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 11:05:48] code 400, message Bad request version ('\x00')
+[09/Apr/2020 11:05:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 12:10:16] code 400, message Bad request syntax ('\x16\x03\x01\x00\x86\x01\x00\x00\x82\x03\x03\x02\x81ÝmZ\x12®{\x7fl\x08"Êª\x13éàûÊæ"Õ¨K|*á¯e,\x17l\x00\x00\x06\x00\x03\x00\x06\x00\x08\x01\x00\x00S\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+[09/Apr/2020 12:10:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 14:06:12] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x02,\x04&=rÒÇØéÅ\x00\x11¡ÞÓ')
+[09/Apr/2020 14:06:12] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 14:16:36] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03Ì/3\x1a q\x02ö~KêÈ\x88õpt¡\x1fõ*\x8aÔÐê\x18Õè\x95U\x80Ñ!\x00\x00\x88À0À,À(À$À\x14À')
+[09/Apr/2020 14:16:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 14:16:36] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x01"\x01\x00\x01')
+[09/Apr/2020 14:16:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 14:16:36] code 400, message Bad request syntax ('\x16\x03\x01\x00Æ\x01\x00\x00Â\x03\x02ë3í%÷ÊåHß¨"\x10\xad(ªG\x0fÎÇ\x90l_\x9d´Aa\x15\x15\x8b§?W\x00\x00PÀ\x14À')
+[09/Apr/2020 14:16:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 14:16:37] code 400, message Bad request version ('ê\x01\x02Üã\x10<Uµñí\x03²\x90\x00\x00PÀ\x14À')
+[09/Apr/2020 14:16:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 53521)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[09/Apr/2020 14:16:40] "GET / HTTP/1.1" 404 2047
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 39420)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[09/Apr/2020 15:32:25] code 400, message Bad request version ('À\x14À')
+[09/Apr/2020 15:32:25] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('113.128.11.4', 57474)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[09/Apr/2020 17:21:02] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x97\x1b>½ÑßT<&tª=YüÚò\x8b\x18\x08')
+[09/Apr/2020 17:21:02] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 17:21:02] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03©èNH~ÝtØ\x1b4\x00¢wÙ»þù¿:Gx\x16[V\x00ZÅº·T\x8d\x88\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[09/Apr/2020 17:21:02] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 17:51:43] code 400, message Bad request version ('À\x14À')
+[09/Apr/2020 17:51:43] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 17:57:49] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03È.TSU\x81zDæI¤Mú\x01ÿyD\x16{\x98ðqb2ãÙi~pñG_ gùT\x96à©L_¡UÊ*£\x1f ÙGo¯\x8bÌ\x1b\x1b\x97ç\x1b±c\x17w\x0b\x14\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[09/Apr/2020 17:57:49] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 22:34:05] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x9dé\x13\x1e\x98Úr\x86þ\x8d/[Gï²¦.\x9dAÖ\x0c×õä*-¯F\x7fQ5\x00 Y\x9a\x93:Wà¦Ë¤©º\x8fi^¬¨uày2¸«Ò\x00å\x1fú³jjÃO\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[09/Apr/2020 22:34:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 22:34:06] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03»Ì{+4\x86Y\x1c4\x02\x03ó\x12ø|\x18G\x15øaSÿ²\x0b\x0e`°Ý=\x0eD! Ì/Ö¾f\x88Á.Rw\x89Â®\x0feNÎ')
+[09/Apr/2020 22:34:06] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('49.85.97.42', 39744)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[09/Apr/2020 23:45:17] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03v]\x0140Hð\x00SÛ\x0fA\x9fÆø\x0ewx~Bð?\x0f¯\x91\x18\x15\x05\x99Ií\x97\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[09/Apr/2020 23:45:17] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[09/Apr/2020 23:45:17] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ôN\x19\x88\x99\x97A\x88µ\x80};2\x02ì%X\x1eÄ\x97¡\x98,\x7f\x85á?;vQ²\x06\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[09/Apr/2020 23:45:17] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:17:51] code 400, message Bad request syntax ('\x16\x03\x01\x00b\x01\x00\x00^\x03\x01^\x8f»*bhB\x88Þö')
+[10/Apr/2020 00:17:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:17:51] code 400, message Bad request version ('À\x14À\x13\x009\x003\x005\x00/À')
+[10/Apr/2020 00:17:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:50] code 400, message Bad request syntax ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03òÅ\x85²ÁÛ\x19\x01åC\x9a1i\x95\x85k\x87\x86\x0eWQ/\x13\x0f~Á\x10m\x12}ç\x1f\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[10/Apr/2020 00:46:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:50] code 400, message Bad request syntax ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03Q²\\\x96fé\x95\x8böd\x1fÓâÊ«\x1eè44\x8c$vþd\x8dÅR^I\x16\x91Î\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[10/Apr/2020 00:46:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:51] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03í©\x89\x05®ÎtþNÍÏ\x81þ\x0eÊñud¬I\x83ÿ[2Gw\x17î°á_\x7f\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[10/Apr/2020 00:46:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:51] code 400, message Bad request version ('À\x14À')
+[10/Apr/2020 00:46:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:52] code 400, message Bad request version ('À\x14À')
+[10/Apr/2020 00:46:52] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:52] code 400, message Bad request version ('À\x14À')
+[10/Apr/2020 00:46:52] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:53] code 400, message Bad request version ('À\x14À')
+[10/Apr/2020 00:46:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:46:53] code 400, message Bad request version ('À\x14À')
+[10/Apr/2020 00:46:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 00:47:04] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[10/Apr/2020 00:47:04] "l          " 400 -
+[10/Apr/2020 00:47:04] code 400, message Bad request version ('\x18ÿ\x93\x08Ê¬')
+[10/Apr/2020 00:47:04] "þÿ         6  *       *þý    |w@È"  ÿÊ¬" 400 -
+[10/Apr/2020 01:58:08] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03`\x0c6#B\x80C\x90\x1eo\x06»=ÕBºü«è~\x06á³²\x9dçWzi\x9ffÒ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[10/Apr/2020 01:58:08] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 04:18:57] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03î6\x1cû!Y\x0e6k\x98ó¼X }6{B6\x8bjT\\\x84, ¦b_VÉá\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[10/Apr/2020 04:18:57] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[10/Apr/2020 07:22:16] "GET / HTTP/1.1" 404 2047
+[10/Apr/2020 07:31:57] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03^\x90 í»\x8dâê9ëuÚ+c¨*@tE\x0fR¾+K\tZ\x0b\x9fÞÔ®e\x00\x00\x88À0À,À(À$À\x14À')
+[10/Apr/2020 07:31:57] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[10/Apr/2020 08:14:17] "GET / HTTP/1.1" 404 2055
+----------------------------------------
+Exception happened during processing of request from ('61.219.11.153', 65257)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+TimeoutError: [Errno 110] Connection timed out
+----------------------------------------
+[10/Apr/2020 10:35:39] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[10/Apr/2020 10:35:39] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('123.10.67.21', 56269)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[10/Apr/2020 11:33:07] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03l#\x96\x19â\x07KûáFhà¿Ü\x06\x93å|ºÂúË\x83Ó©\x7f\x813ò#|c\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[10/Apr/2020 11:33:07] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 11:33:07] code 400, message Bad request version ('\x00')
+[10/Apr/2020 11:33:07] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 11:55:55] code 400, message Bad request syntax ("\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x035+üN' t¡KXÔ¿\x1e\x1b\x8fÂ\x15åÇ)ôÂ\x0b\x88\x03\x8cUòÙL\x11\x17\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À")
+[10/Apr/2020 11:55:55] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[10/Apr/2020 14:50:55] "GET / HTTP/1.1" 404 2055
+[10/Apr/2020 16:28:14] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03Ð[MøÄl\x19~\x12Æ\x1b1#\x8c\x19ïW8Ú¼9\x02÷\x13Ä»÷ÞP\x07e\x0e\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[10/Apr/2020 16:28:14] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 17:07:04] code 400, message Bad request version ('=\x00\x00\x84À0À,À(À$À\x14À')
+[10/Apr/2020 17:07:04] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[10/Apr/2020 17:07:05] "GET / HTTP/1.1" 404 2047
+----------------------------------------
+Exception happened during processing of request from ('36.22.79.247', 34709)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[10/Apr/2020 17:25:15] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03'JÈ\x97²þe¬²ùX(2%v£ø\x8a\x83\x9au^Û!¨øÆÃsö\x8d¬\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00")
+[10/Apr/2020 17:25:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 17:25:15] code 400, message Bad request version ('\x00')
+[10/Apr/2020 17:25:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 18:53:44] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ÔvB|E3Ôßÿ_¥Ô?g"_\x16= [ÛÄ\x10\x9bYÏ\x063ÏVªò «R\x17»^êÄÙñë\x90\x18A\x90\x9b\x86Ôw\x82>%Ç\x16Ë±Z\x87òp»Pô\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[10/Apr/2020 18:53:44] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 18:56:10] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03üñg¦\x02ôLË£|Ú#\t\x12âó\x0eo\x8c\x16aÞ0Qæ\x98Q+\x0fmÆã 5}ÃìQ\x1cØÑ\x85_ê\x01b9}Øù\x8b;LgÝª\x8a')
+[10/Apr/2020 18:56:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('172.105.89.161', 48919)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[10/Apr/2020 20:15:05] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x03ûª\x01ÎVà\x9fvÇ\x95\x15Â¯Q\x91^%\x90Gw\x162Ë¥Ùt^\t :` \x03\x82\x90Ê\x8eã\r¨OÝþ;4®\xa0+ÐÖ\x01¯rW[¿\x91PþÝCXÔ®\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[10/Apr/2020 20:15:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 20:15:06] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03G\x8c\x86Ñ\x89\x85;G#\x19\x85\x90\x19õ\x9e¹\x97ÌÁ\x98Ç7pw-\x90®\x95¢\x97\x1aG ®G\x96ó')
+[10/Apr/2020 20:15:06] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 22:05:02] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[10/Apr/2020 22:05:02] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 22:11:05] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03BSÙH6×Zü=\x05\x9b¿®8\x83ãå´ûx\x16F³OëRª\x8d!·D\x15\x00\x00')
+[10/Apr/2020 22:11:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[10/Apr/2020 22:11:08] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x02\x00Z\x01\x00\x00V\x03\x02ZC7*}«\x96\x0f}rÇ¡èü')
+[10/Apr/2020 22:11:08] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('101.36.149.66', 63405)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[10/Apr/2020 23:36:03] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+[10/Apr/2020 23:36:03] "  à          " 400 -
+[11/Apr/2020 01:43:18] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03r§âFV:ÿ$\x96ac\x1fgµ\x9f¼7eåº*\x8a:ã\x1d\x94ZvY\x0bK\x08\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[11/Apr/2020 01:43:18] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 04:32:30] code 400, message Bad HTTP/0.9 request type ("\x16\x03\x01\x00ä\x01\x00\x00à\x03\x03ÿ£Âý\x17\x8ei\x10aýÕ\x9eóà\x98ÌwÀÏÊÚªÀ@ÿV\x89xÙÐãL\x00\x00hÌ\x14Ì\x13À/À+À0À,À\x11À\x07À'À#À\x13À")
+[11/Apr/2020 04:32:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('114.227.11.90', 56654)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[11/Apr/2020 05:29:42] code 400, message Bad request version ('\x00')
+[11/Apr/2020 05:29:42] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 05:29:42] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03é>z_æ\x11ë[\x9aü\x8c>Á\x16êþN\x0fÖã\x8dkæçºÍn=Æ\x7f\x16l\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[11/Apr/2020 05:29:42] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 07:19:30] code 400, message Bad request syntax ('\x16\x03\x01\x00Þ\x01\x00\x00Ú\x03\x03ü:ÒÍ}\x18\x08¦Ì\x101U\x0cëïçß²Û\x8cGô\x01\x1e½c\x8dõ\xa0\x1a\x9cÈ\x00\x00nÀ0À,À2À.À/À+À1À-\x00¥\x00£\x00¡\x00\x9f\x00¤\x00¢\x00\xa0\x00\x9eÀ(À$À\x14À')
+[11/Apr/2020 07:19:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /smtp.mail.ru:25
+[11/Apr/2020 09:31:11] "CONNECT smtp.mail.ru:25 HTTP/1.1" 404 1662
+----------------------------------------
+Exception happened during processing of request from ('119.114.78.9', 35771)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[11/Apr/2020 11:21:10] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x1e\x9cr²\x94%þ\x85â#\x96Ï6é\x87¢\rû×v"k»ö+\x03¨\x89_\x13¹I\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[11/Apr/2020 11:21:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 11:21:10] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03,& G&t\x13¶4^¡\x0c¦I\x7f\x9b$Û\x0c\x0c¥u]\x99jÌ)ú\x03Aëÿ\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[11/Apr/2020 11:21:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /ip.ws.126.net:443
+[11/Apr/2020 11:44:15] "CONNECT ip.ws.126.net:443 HTTP/1.1" 404 1670
+[11/Apr/2020 15:41:42] code 400, message Bad request version ('À\x14À')
+[11/Apr/2020 15:41:42] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('27.209.124.238', 58392)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[11/Apr/2020 17:23:36] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03Äþu/éÑa\x04\x0e$ê,08Î\x80»\x88w¡Qu\x95\x8fc,rMïo\x16Å\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[11/Apr/2020 17:23:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 17:23:36] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x19ä\x07\x8cÕÖêBdÕÒ\x9cXÛ©Ý52\x8b¡ä7\x05^\x0eG\x84;º\x08Y\x8b\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[11/Apr/2020 17:23:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 17:41:03] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00í\x01\x00\x00é\x03\x03^\x92\x01.\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00PÀ/\x00\x13\x002\x003\x00\x9e\x009Ì\x15\x00\x18\x001À\x08À')
+[11/Apr/2020 17:41:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 17:51:45] code 400, message Bad request version ('kñ\x867\x82\x87\x18<\x00\x00\x88À0À,À(À$À\x14À')
+[11/Apr/2020 17:51:45] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('113.121.240.17', 53712)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[11/Apr/2020 23:26:40] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ÖÖµa~¤\x9eÊ¦~ÁèXI\x93ër\xad\x99{\x87ùæ©\\R\x14[')
+[11/Apr/2020 23:26:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 23:26:40] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x9b\x11·éay-\x9e0¨ÜÔ\x06¶v\x92ô\x04ÎÐ£03ðÚ¸«\x84]bÍ"\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[11/Apr/2020 23:26:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[11/Apr/2020 23:47:45] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[11/Apr/2020 23:47:45] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 01:13:09] code 400, message Bad request version ('\x00')
+[12/Apr/2020 01:13:09] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 01:13:09] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03)\x9eç')
+[12/Apr/2020 01:13:09] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 02:44:03] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03s\x84ùVC')
+[12/Apr/2020 02:44:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 04:43:11] code 400, message Bad request version ('4u],ÖÂ\x9a\x98\x98\x16Ì%\x17ÿ²wÊW\x00\x00ôÀ0À,À(À$À\x14À')
+[12/Apr/2020 04:43:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[12/Apr/2020 04:43:17] "GET / HTTP/1.1" 404 2043
+----------------------------------------
+Exception happened during processing of request from ('195.144.21.56', 49418)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('113.121.166.24', 47786)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[12/Apr/2020 05:56:03] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03&¸kB\x14±A³Kl¯í\x16\x88ÉÀ>Ei\x9cúÃæZvÁMÜINf(\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[12/Apr/2020 05:56:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 05:56:04] code 400, message Bad request version ('\x00')
+[12/Apr/2020 05:56:04] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('115.196.196.163', 34164)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[12/Apr/2020 11:29:09] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x1a¯ø'_ÝO\x86~ñD\x1e\x14\r\x82^.pRzÍX\x08\x8d©Mh\x97Ë-\x16Ý\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00")
+[12/Apr/2020 11:29:09] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 11:29:10] code 400, message Bad request version ('\x00')
+[12/Apr/2020 11:29:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 13:13:46] code 400, message Bad request version ('\x8b\x99íoY\x08\x96|\x7f\x9e\x9aTñeL]ô\x96ê\x96^+x\x08\x99\x00\x00$\x00\x12\x00\x13\x00\x15\x00\x16\x002\x003\x008\x009\x00@\x00f\x00g\x00j\x00k\x00\x9e\x00\x9f\x00¢\x00£Ìª\x01\x00\x00S\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+[12/Apr/2020 13:13:46] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 13:54:51] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03þ')
+[12/Apr/2020 13:54:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('61.219.11.153', 61923)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[12/Apr/2020 14:15:17] code 400, message Bad request syntax ('\x05\x01\x00')
+[12/Apr/2020 14:15:17] " " 400 -
+[12/Apr/2020 14:15:23] code 400, message Bad request syntax ('\x05\x01\x00')
+[12/Apr/2020 14:15:23] " " 400 -
+[12/Apr/2020 14:15:29] code 400, message Bad request syntax ('\x05\x01\x00')
+[12/Apr/2020 14:15:29] " " 400 -
+[12/Apr/2020 14:17:03] code 400, message Bad request syntax ('\x04\x01\x00P\x05¼Òe\x00')
+[12/Apr/2020 14:17:03] " P¼Òe " 400 -
+[12/Apr/2020 14:17:09] code 400, message Bad request syntax ('\x04\x01\x00P\x05¼Òe\x00')
+[12/Apr/2020 14:17:09] " P¼Òe " 400 -
+[12/Apr/2020 14:17:15] code 400, message Bad request syntax ('\x04\x01\x00P\x05¼Òe\x00')
+[12/Apr/2020 14:17:15] " P¼Òe " 400 -
+Not Found: /http:/5.188.210.101/echo.php
+[12/Apr/2020 14:18:42] "GET http://5.188.210.101/echo.php HTTP/1.1" 404 1697
+[12/Apr/2020 16:21:34] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03éÝÏ|ð7ZC*Q\x0bÛ^\x13x\'Éâ\x8c§s$Ý\x0fËßu\x87\x1d#vf\x00\x00\x88À0À,À(À$À\x14À')
+[12/Apr/2020 16:21:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 16:21:37] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03^\x94\x14\x1aèÅAÓ\x99\x81×vÌí\\$°4/ F\x1dæIµ\x19¶Ã5¶ÊØ\x00\x00\x88À0À,À(À$À\x14À')
+[12/Apr/2020 16:21:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 16:21:39] code 400, message Bad request syntax ('\x16\x03\x01\x00Æ\x01\x00\x00Â\x03\x02Ë\x84D\x84Â\x10ºpT¹Læ\x19±´®¼é¨¿]hâân\x0f:\x84µ\x7fÝg\x00\x00PÀ\x14À')
+[12/Apr/2020 16:21:39] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 16:21:41] code 400, message Bad request syntax ('\x16\x03\x01\x00Æ\x01\x00\x00Â\x03\x01_')
+[12/Apr/2020 16:21:41] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 36534)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[12/Apr/2020 16:21:45] "GET / HTTP/1.1" 404 2047
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 43330)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('140.250.120.118', 47484)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[12/Apr/2020 17:52:59] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03}M¯ò¸K\x86r}\x12\x86&%ùòµ+ágÜÑÎÈ«')
+[12/Apr/2020 17:52:59] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 17:53:00] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03þ£Y\x9ci\x19,\x8a³\x1e%¹\x04zê7]¿þ¬.?û½\x81\x06N\x14_É\tµ\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[12/Apr/2020 17:53:00] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 21:38:24] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x94\x17Ðe')
+[12/Apr/2020 21:38:24] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 22:23:58] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*à\x00\x00\x00\x00\x00Cookie:')
+[12/Apr/2020 22:23:58] "  /*à     Cookie: mstshash=Administr" 400 -
+----------------------------------------
+Exception happened during processing of request from ('221.231.72.88', 55129)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[12/Apr/2020 23:22:14] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x8f+\x96\x93\x9cðI2\x17 g^\rn\x99\x94\x83+«µM\xa0\x91\x8dLûT\x82Ç\x08Ô%\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[12/Apr/2020 23:22:14] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[12/Apr/2020 23:22:14] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03P\x8b¢M"Ï\x0bNC55\x96\x08H[½ºô\x1d\x81gÅì\x88\tüÛGe\'æ¦\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[12/Apr/2020 23:22:14] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 00:55:53] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03_Ïc\x9e\x10[')
+[13/Apr/2020 00:55:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 00:59:19] code 400, message Bad request version ('À\x14À')
+[13/Apr/2020 00:59:19] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 04:41:54] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x8d\x0cé\x82öz;\x000[à¦ôeð÷\x8dW\x06ºäfª\x1dÕP2d<¬³Ö\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[13/Apr/2020 04:41:54] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 05:01:29] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[13/Apr/2020 05:01:29] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /ip.ws.126.net:443
+[13/Apr/2020 05:28:19] "CONNECT ip.ws.126.net:443 HTTP/1.1" 404 1670
+----------------------------------------
+Exception happened during processing of request from ('114.227.163.38', 42164)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[13/Apr/2020 05:32:30] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03-uÒ0\x91õ¬zÁ1]\x05;pHÅ\x16Ý\x127V\x0fEú¥Å»X3>¨0\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[13/Apr/2020 05:32:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 05:32:31] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03Ç(_Qáÿ7ÔðÒ\'BÌù\x81÷\x83^§«"<')
+[13/Apr/2020 05:32:31] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /manager/text/list
+[13/Apr/2020 05:37:41] "GET /manager/text/list HTTP/1.1" 404 2116
+[13/Apr/2020 05:40:26] code 400, message Bad request syntax ("\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03zTÎ\x1cì\x1d\x92©ó¢\x19+!\x13Ö3NVSUE´ÐàN\x1c\x830\x1f\x83R/ ÍðåÔÄÓ\x9cKÒu\x19V+cLÀz\x13¨Ï\x86V\x1cÐÍ8¿+ð\x0f'^\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À")
+[13/Apr/2020 05:40:26] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 05:43:02] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03|k\x89\\\x08\rú\x9dÛ×\xad\x9eg\x89?w!ï¡\x01kÍv?#\x9a_â¨ N\x00 A\x14õ\x90Ö\x88\x96rCµë\x89r-¿\x9f£\x02tmñã±\x7f8]¬$!;SQ\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[13/Apr/2020 05:43:02] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 06:33:55] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03p~\x89\x8fU\x19Ñ9"\x00öÿñ\x9d?\x04Ýs\x89\x14Ù(sûê§\x83\x9c³&[ë\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[13/Apr/2020 06:33:55] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 06:50:09] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03')
+[13/Apr/2020 06:50:09] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 06:50:11] code 400, message Bad request syntax ("\x16\x03\x01\x00î\x01\x00\x00ê\x03\x036Y\x11g±îcûÜ\x0bâ\x10\x92¾\x1f\x8aW\x8f*U-\x18tJ\x836+ÑÊ|î\x15 '&0÷½\x10\x9fÎºËî¸â?ë\rk\xa0i\x10ùiôÛQgIÞ¾ÛîÉ\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À")
+[13/Apr/2020 06:50:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 07:13:50] code 400, message Bad request syntax ('\x16\x03\x01\x00\x89\x01\x00\x00\x85\x03\x03»I\x93äÖ\x1b¢¦»j6CÙ\x10\x1c\x83\x0b\\ÉÒU#äRHYÀ-\x01@\x7fÒ\x00\x00 À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[13/Apr/2020 07:13:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 08:41:16] code 400, message Bad request syntax ('\x16\x03\x01\x00Þ\x01\x00\x00Ú\x03\x03Y\x96d¯|\x997M\x867;f\tÜ\x8aäé\x92dkï²Ü\x13D×¤©m\x8b ©\x00\x00nÀ0À,À2À.À/À+À1À-\x00¥\x00£\x00¡\x00\x9f\x00¤\x00¢\x00\xa0\x00\x9eÀ(À$À\x14À')
+[13/Apr/2020 08:41:16] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 13:14:48] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x01.\x01\x00\x01*\x03\x03º$\x90,\x9få\x93\x90Ü\x83³²\x0fY·}Sªx\x88+[uîFyRþ?Pu\x92')
+[13/Apr/2020 13:14:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('185.153.196.12', 1308)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[13/Apr/2020 13:49:24] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[13/Apr/2020 13:49:24] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 16:30:54] code 400, message Bad request syntax ("\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x8b\x93¸\x94Ñ\x0bõ4$Þ\x9c'X[¹·\x1c\x83Êjñ»Å§YPÚ\x16\x00²áß\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À")
+[13/Apr/2020 16:30:54] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 16:52:10] code 400, message Bad request version ('À\x14À')
+[13/Apr/2020 16:52:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('117.94.182.215', 36686)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[13/Apr/2020 17:29:51] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x05mQG<òûPb)y\x8e©>8\x99c\x04\x82M\x83s01®aZÃ\x17çbF\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[13/Apr/2020 17:29:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 17:29:51] code 400, message Bad request version ('\x00')
+[13/Apr/2020 17:29:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 19:38:03] code 400, message Bad request syntax ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03\x10Ç\x10\x0c h{gg^Á£1u\x94::vê\x08%\x8c\x18\téÓæJ\x99Ð\x07\x85\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[13/Apr/2020 19:38:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /manager/html
+[13/Apr/2020 20:34:44] "GET /manager/html HTTP/1.1" 404 2101
+[13/Apr/2020 20:52:19] code 400, message Bad request version ('À\x14À')
+[13/Apr/2020 20:52:19] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('172.105.89.161', 51462)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('182.126.52.183', 37147)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[13/Apr/2020 23:29:13] code 400, message Bad request version ('\x00')
+[13/Apr/2020 23:29:13] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[13/Apr/2020 23:29:14] code 400, message Bad request version ('\x00')
+[13/Apr/2020 23:29:14] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 00:28:00] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03Õ8E\x8b<êUÚ],å0:ýö\x84Ç\x08¶\x9fòc=\x109ÓI¨@¤µ(\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[14/Apr/2020 00:28:00] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 00:43:47] code 400, message Bad request syntax ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03¸ìÞ[9\x0c)£ \x01\x15\x93ãéø\x90JaÀÔ\x82\x89òÙu\x80Å\x9b¿\x99 ×\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[14/Apr/2020 00:43:47] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 01:52:40] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[14/Apr/2020 01:52:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 03:10:11] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[14/Apr/2020 03:10:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 04:00:25] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[14/Apr/2020 04:00:25] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 04:02:25] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03\x88#IÔ\x05\xadôx Rdÿç\x00>\x03ªlbù´\x01såbú \x87«C(i d\x14W\x9f`¬^ÊLj`\x03Ò\x13ÚyÿU¾\x85\x86\x11®®¶c,EY u¯\x00&Ì¨Ì©À/À0À+À,À\x13À\tÀ\x14À')
+[14/Apr/2020 04:02:25] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?debug=command&expression=( HTTP/1.0" 404 2086
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?debug=command&expression=( HTTP/1.0" 404 2086
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?redirect:https://www.baidu.com/ HTTP/1.0" 404 2087
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?debug=browser&object=( HTTP/1.0" 404 2082
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?method: HTTP/1.0" 404 2063
+Not Found: /
+[14/Apr/2020 05:07:33] "GET / HTTP/1.0" 404 2055
+Not Found: /(
+[14/Apr/2020 05:07:33] "GET /( HTTP/1.0" 404 2076
+Not Found: /
+[14/Apr/2020 05:07:33] "GET / HTTP/1.0" 404 2055
+Not Found: /
+[14/Apr/2020 05:07:33] "GET / HTTP/1.0" 404 2055
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /struts2-showcase/integration/saveGangster.action
+[14/Apr/2020 05:07:33] "POST /struts2-showcase/integration/saveGangster.action HTTP/1.0" 404 2218
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?class['classLoader']['jarPath']=1 HTTP/1.0" 404 2109
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?class['classLoader']['resources']=1 HTTP/1.0" 404 2111
+Not Found: /
+[14/Apr/2020 05:07:33] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?id=%%7B( HTTP/1.0" 404 2064
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?name=%%7B( HTTP/1.0" 404 2066
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?filename=%%7B( HTTP/1.0" 404 2070
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?username=%%7B( HTTP/1.0" 404 2070
+Not Found: /
+[14/Apr/2020 05:07:33] "GET /?password=%%7B( HTTP/1.0" 404 2070
+Not Found: /${(
+[14/Apr/2020 05:07:33] "GET /$%7B( HTTP/1.0" 404 2084
+Not Found: /${(
+[14/Apr/2020 05:07:33] "GET /$%7B( HTTP/1.0" 404 2084
+Not Found: /api/v1
+[14/Apr/2020 05:18:19] "GET /api/v1 HTTP/1.1" 404 2083
+[14/Apr/2020 05:18:20] code 400, message Bad request version ("\x16\x8c\x13óìØ3q'$\x99Y\x83\x1aú\x84ÿ\x99±\x08Î«ÜÙ\x18³$føzBë\x00>\x13\x02\x13\x03\x13\x01À,À0\x00\x9fÌ©Ì¨ÌªÀ+À/\x00\x9eÀ$À(\x00kÀ#À'\x00gÀ")
+[14/Apr/2020 05:18:20] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[14/Apr/2020 05:18:31] "GET / HTTP/1.0" 404 2055
+Not Found: /
+[14/Apr/2020 05:18:31] "OPTIONS / HTTP/1.0" 404 2059
+Not Found: /nice ports,/Trinity.txt.bak
+[14/Apr/2020 05:18:32] "GET /nice%20ports%2C/Tri%6Eity.txt%2ebak HTTP/1.0" 404 2156
+[14/Apr/2020 05:18:34] code 400, message Bad request syntax ('\x16\x03\x00\x00S\x01\x00\x00O\x03\x00?G×÷º,îê²`~ó\x00ý\x82{¹Õ\x96Èw\x9bæÄÛ<=Ûoï\x10n\x00\x00(\x00\x16\x00\x13\x00')
+[14/Apr/2020 05:18:34] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 05:18:35] code 400, message Bad request version ('\x00/\x00')
+[14/Apr/2020 05:18:35] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 05:18:35] code 400, message Bad HTTP/0.9 request type ('\x80\x9e\x01\x03\x01\x00u\x00\x00\x00')
+[14/Apr/2020 05:18:35] " u      f  e  d  c  b  :  9  8  5  4  3  2  /                        " 400 -
+[14/Apr/2020 05:18:37] code 400, message Bad HTTP/0.9 request type ('l\x00')
+[14/Apr/2020 05:18:37] "l          " 400 -
+[2020-04-14 05:18:37,498] - Broken pipe from ('172.104.182.11', 33642)
+
+[14/Apr/2020 05:18:37] code 400, message Bad request syntax ('#ST')
+[14/Apr/2020 05:18:37] "#ST" 400 -
+[14/Apr/2020 05:18:39] code 400, message Bad HTTP/0.9 request type ('\x00')
+[14/Apr/2020 05:18:39] " n    beio" 400 -
+[2020-04-14 05:18:39,500] - Broken pipe from ('172.104.182.11', 34418)
+
+----------------------------------------
+Exception happened during processing of request from ('172.104.182.11', 34974)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 05:18:40] code 400, message Bad request version ('RTSP/1.0')
+[14/Apr/2020 05:18:40] "OPTIONS / RTSP/1.0" 400 -
+[14/Apr/2020 05:18:44] code 400, message Bad HTTP/0.9 request type ('\x00')
+[14/Apr/2020 05:18:44] "          versionbind   " 400 -
+[2020-04-14 05:18:44,009] - Broken pipe from ('172.104.182.11', 36312)
+
+[14/Apr/2020 05:18:45] code 400, message Bad HTTP/0.9 request type ('\x00')
+[14/Apr/2020 05:18:45] "            " 400 -
+[14/Apr/2020 05:18:45] code 400, message Bad request syntax ('HELP')
+[14/Apr/2020 05:18:45] "HELP" 400 -
+[14/Apr/2020 05:18:46] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00*%à\x00\x00\x00\x00\x00Cookie:')
+[14/Apr/2020 05:18:46] "  *%à     Cookie: mstshash=beio" 400 -
+[14/Apr/2020 05:18:47] code 400, message Bad request syntax ('\x00\x00\x00qj\x81n0\x81k¡\x03\x02\x01\x05¢\x03\x02\x01')
+[14/Apr/2020 05:18:47] "   qjn0k¡¢" 400 -
+[14/Apr/2020 05:18:49] code 400, message Bad request syntax ('\x00\x00\x00¤ÿSMBr\x00\x00\x00\x00\x08\x01@\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00@\x06\x00\x00\x01\x00\x00\x81\x00\x02PC NETWORK PROGRAM 1.0\x00\x02MICROSOFT NETWORKS 1.03\x00\x02MICROSOFT NETWORKS 3.0\x00\x02LANMAN1.0\x00\x02LM1.2X002\x00\x02Samba\x00\x02NT LANMAN 1.0\x00\x02NT LM 0.12\x00')
+[14/Apr/2020 05:18:49] "   ¤ÿSMBr    @              @     PC NETWORK PROGRAM 1.0 MICROSOFT NETWORKS 1.03 MICROSOFT NETWORKS 3.0 LANMAN1.0 LM1.2X002 Samba NT LANMAN 1.0 NT LM 0.12 " 400 -
+[2020-04-14 05:18:49,097] - Broken pipe from ('172.104.182.11', 38352)
+
+[14/Apr/2020 05:18:49] code 400, message Bad request syntax ('\x01default')
+[14/Apr/2020 05:18:49] "default" 400 -
+[14/Apr/2020 05:18:49] code 400, message Bad request syntax ('0\x84\x00\x00\x00-\x02\x01\x07c\x84\x00\x00\x00$\x04\x00')
+[14/Apr/2020 05:18:49] "0   -c   $ " 400 -
+[14/Apr/2020 05:18:52] code 400, message Bad HTTP/0.9 request type ('0')
+[14/Apr/2020 05:18:52] "0`  " 400 -
+[2020-04-14 05:18:52,560] - Broken pipe from ('172.104.182.11', 39676)
+
+[14/Apr/2020 05:18:52] code 400, message Bad request version ('SIP/2.0')
+[14/Apr/2020 05:18:52] "OPTIONS sip:nm SIP/2.0" 400 -
+[14/Apr/2020 05:18:54] code 400, message Bad request syntax ('TNMP\x04\x00\x00\x00TNME\x00\x00\x04\x00')
+[14/Apr/2020 05:18:54] "TNMP   TNME   " 400 -
+[2020-04-14 05:18:54,522] - Broken pipe from ('172.104.182.11', 40844)
+
+[14/Apr/2020 05:18:56] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00')
+[14/Apr/2020 05:18:56] "  à     " 400 -
+[2020-04-14 05:18:56,147] - Broken pipe from ('172.104.182.11', 41414)
+
+[14/Apr/2020 05:18:59] code 400, message Bad request syntax ('DmdT\x00\x00\x00\x17\x00\x00\x00\x01\x00\x00\x00\x00\x11\x11\x00ÿ\x01ÿ\x13')
+[14/Apr/2020 05:18:59] "DmdT           ÿÿ" 400 -
+[2020-04-14 05:18:59,509] - Broken pipe from ('172.104.182.11', 41862)
+
+----------------------------------------
+Exception happened during processing of request from ('172.104.182.11', 43178)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 05:19:02] code 400, message Bad request syntax ('JRMI\x00\x02K')
+[14/Apr/2020 05:19:02] "JRMI K" 400 -
+[2020-04-14 05:19:02,804] - Broken pipe from ('172.104.182.11', 44062)
+
+----------------------------------------
+Exception happened during processing of request from ('172.104.182.11', 44494)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 05:19:06] code 400, message Bad HTTP/0.9 request type ('\x00Z\x00\x00\x01\x00\x00\x00\x016\x01,\x00\x00\x08\x00\x7fÿ\x7f\x08\x00\x00\x00\x01\x00')
+[14/Apr/2020 05:19:06] " Z     6,   ÿ      :               æ           (CONNECT_DATA=(COMMAND=version))" 400 -
+[2020-04-14 05:19:06,266] - Broken pipe from ('172.104.182.11', 44974)
+
+[14/Apr/2020 05:19:07] code 400, message Bad request version ('\x03\x00(\x00\x04ÿ\x08\x00\x01U\x00\x00\x00MSSQLServer\x00H\x0f\x00\x00')
+[14/Apr/2020 05:19:07] " 4            ( ÿ U   MSSQLServer H  " 400 -
+[2020-04-14 05:19:07,862] - Broken pipe from ('172.104.182.11', 45418)
+
+[14/Apr/2020 05:19:09] code 400, message Bad request syntax ('\x00\x03\x00\x01\x00\x00\x00\x00\x00\x00\x00\x02\x00\x00\x00\x00\x0f\x00')
+[14/Apr/2020 05:19:09] "              " 400 -
+[14/Apr/2020 05:19:11] code 400, message Bad request syntax ('GIOP\x01\x00\x01\x00$\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x01\x00\x00\x00\x06\x00\x00\x00abcdef\x00\x00\x04\x00\x00\x00get\x00\x00\x00\x00\x00')
+[14/Apr/2020 05:19:11] "GIOP  $                abcdef     get     " 400 -
+[2020-04-14 05:19:11,535] - Broken pipe from ('172.104.182.11', 46196)
+
+[14/Apr/2020 05:19:13] code 400, message Bad request syntax ('\x00\x9c\x00\x01\x1a+<M\x00\x01\x00\x00\x01\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x01ÿÿ\x00\x01none\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00beio\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[14/Apr/2020 05:19:13] "  +<M            ÿÿ none                                                            beio                                                            " 400 -
+[2020-04-14 05:19:13,228] - Broken pipe from ('172.104.182.11', 46994)
+
+[14/Apr/2020 05:19:14] code 400, message Bad request syntax ('\x00\x00\x00\x01\x00\x00\x00\x01\x00\x00\x00\x04\x00\x00\x00\x08\x00\x00\x00\x01\x00\x00\x00\x00')
+[14/Apr/2020 05:19:14] "                   " 400 -
+[14/Apr/2020 05:23:52] code 400, message Bad request syntax ('\x05\x01\x00')
+[14/Apr/2020 05:23:52] " " 400 -
+Not Found: /
+[14/Apr/2020 05:32:05] "GET / HTTP/1.1" 404 2047
+[14/Apr/2020 05:32:05] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00u\x01\x00\x00q\x03\x03¦¯\x89à\x9b\x15ÒñÖj¬d.NÜ\x10b/äR5B:Pi\x9c£K°ÏM\x13\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[14/Apr/2020 05:32:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('114.239.148.177', 40788)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 05:34:06] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¯·¹\x1fâ\xa0U$hRÿ\x1dïÕ¾\x05\x00')
+[14/Apr/2020 05:34:06] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 05:34:06] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x038S¨ââ\x97ù\x93´ØÊüEÇ\x89rl.\x00\x0e-îf\x12yµ')
+[14/Apr/2020 05:34:06] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /http:/example.com/
+[14/Apr/2020 07:14:17] "GET http://example.com/ HTTP/1.1" 404 1665
+[14/Apr/2020 08:31:39] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03¬ÂoKó\x03ò×.¬\x88\x84\x0c"î+E÷Xvy\t$¾\\è Q\x14S\x84\x96\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[14/Apr/2020 08:31:39] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 08:54:52] code 400, message Bad request syntax ('\x16\x03\x01\x00ø\x01\x00\x00ô\x03\x03\x18\x07<Æþ¤âF4\x0f®ÏeüÒ,á¸\x10Á¢_éhÛ\x1dmË¯qe@ \x18ÍÑp\x8aã\x8eA\x9a\x8c#°\x93\x97¹\x13¸\x08ú)±â2[\x88"\x8c{þ$Ï\x81\x00&Ì¨Ì©À/À0À+À,À\x13À\tÀ\x14À')
+[14/Apr/2020 08:54:52] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 10:37:36] code 400, message Bad request syntax ('\x03\x00\x00\x13\x0eà\x00\x00\x00\x00\x00\x01\x00\x08\x00\x03\x00\x00\x00')
+[14/Apr/2020 10:37:36] "  à          " 400 -
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?debug=command&expression=( HTTP/1.0" 404 2086
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?debug=command&expression=( HTTP/1.0" 404 2086
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?redirect:https://www.baidu.com/ HTTP/1.0" 404 2087
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?debug=browser&object=( HTTP/1.0" 404 2082
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?method: HTTP/1.0" 404 2063
+Not Found: /
+[14/Apr/2020 10:48:51] "GET / HTTP/1.0" 404 2055
+Not Found: /(
+[14/Apr/2020 10:48:51] "GET /( HTTP/1.0" 404 2076
+Not Found: /
+[14/Apr/2020 10:48:51] "GET / HTTP/1.0" 404 2055
+Not Found: /
+[14/Apr/2020 10:48:51] "GET / HTTP/1.0" 404 2055
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /struts2-showcase/integration/saveGangster.action
+[14/Apr/2020 10:48:51] "POST /struts2-showcase/integration/saveGangster.action HTTP/1.0" 404 2218
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?class['classLoader']['jarPath']=1 HTTP/1.0" 404 2109
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?class['classLoader']['resources']=1 HTTP/1.0" 404 2111
+Not Found: /
+[14/Apr/2020 10:48:51] "POST / HTTP/1.0" 404 2056
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?id=%%7B( HTTP/1.0" 404 2064
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?name=%%7B( HTTP/1.0" 404 2066
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?filename=%%7B( HTTP/1.0" 404 2070
+Not Found: /
+[14/Apr/2020 10:48:51] "GET /?username=%%7B( HTTP/1.0" 404 2070
+Not Found: /
+[14/Apr/2020 10:48:52] "GET /?password=%%7B( HTTP/1.0" 404 2070
+Not Found: /${(
+[14/Apr/2020 10:48:52] "GET /$%7B( HTTP/1.0" 404 2084
+Not Found: /${(
+[14/Apr/2020 10:48:52] "GET /$%7B( HTTP/1.0" 404 2084
+[14/Apr/2020 11:10:51] code 400, message Bad request syntax ("\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03.t'\x8fLÇ\x18ã·\x7fá\x87g\x1dm$\x11V\x8b?\x13¾´\x06+\x0eHÅ5\x05\xa0î\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À")
+[14/Apr/2020 11:10:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('122.4.50.109', 42885)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 11:41:58] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03 ð\x12Vâþ½\x01Èð\x97¯|\x84\x14jØ&\x1e\x1d\x92õÈ\x02\x1d[\x94q5Q1 \x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[14/Apr/2020 11:41:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 11:41:59] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x80ãkKMe¢\x91µaEÔÆT\x1dd+2~\x01£©\x18U\t$ßÏ-æs¦\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[14/Apr/2020 11:41:59] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 14:13:30] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x01"\x01\x00\x01')
+[14/Apr/2020 14:13:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 16:33:07] code 400, message Bad request syntax ("\x16\x03\x01\x00u\x01\x00\x00q\x03\x03\x9fÖ?Ãû}LV\x10÷ñrç©\x05\x9c\x89ç\x9b[\xa0Þ÷ã\x1dÊ'Ò¯¾î/\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À")
+[14/Apr/2020 16:33:07] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 16:41:01] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x9cÿÆõ,\x06\x8e*µBWlè(\x7fI\xad%\x84¶')
+[14/Apr/2020 16:41:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('49.73.86.253', 54470)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 17:20:50] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03¡ª^dÒ¼\x84à\x0b`/0Pô\x98¦Ù\x8dæÔÀ\t\x88\x04k)SF¹RÓö\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[14/Apr/2020 17:20:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[14/Apr/2020 17:20:50] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03~Þ\x9bó\x82\x19d«¢7RÅ\x918¤\x1cË4\x86]dF¹Ýü\x0b¯¥©ç"(\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[14/Apr/2020 17:20:50] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /ecp/
+[14/Apr/2020 18:06:07] "GET /ecp/ HTTP/1.1" 404 2077
+[14/Apr/2020 20:17:32] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[14/Apr/2020 20:17:32] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /http:/106.52.184.19:443/
+[14/Apr/2020 21:54:42] "GET http://106.52.184.19:443/ HTTP/1.1" 404 1689
+----------------------------------------
+Exception happened during processing of request from ('183.192.179.16', 43158)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /http:/106.52.184.19:443/api/v1
+[14/Apr/2020 22:27:18] "GET http://106.52.184.19:443/api/v1 HTTP/1.1" 404 1707
+----------------------------------------
+Exception happened during processing of request from ('59.36.132.240', 59630)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[14/Apr/2020 23:02:20] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03Üå.\x81ã"wªß\tÙ¾9;\x8e\x8e¼\r\x9e¯`uË\x05°"^§Ú\x9cå! Å;\x10\x819:\x0bK\x7f\rP`\x1a\x92À·®?F\x0fE\x15ð½ZÒ?L\x80Ö÷Ä\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[14/Apr/2020 23:02:20] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 01:33:39] code 400, message Bad request version ('À\x14À')
+[15/Apr/2020 01:33:39] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 02:34:01] code 400, message Bad request syntax ('\x16\x03\x03\x00\x8e\x01\x00\x00\x8a\x03\x03^\x96r\x8cSvîS]Ïñ\x18\x05\x15\x13÷¦ÈP')
+[15/Apr/2020 02:34:01] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 02:34:02] code 400, message Bad request syntax ("\x16\x03\x03\x00\x8e\x01\x00\x00\x8a\x03\x03^\x96r\x8d@øè\x9aß\x93Ç'/.o\x19\x96ÃÈ%Ó\x11¼ÿ\x97\x071j,fà\x94\x00\x000À(À'À\x14À\x13\x00\x9f\x00\x9e\x00\x9d\x00\x9c\x00=\x00<\x005\x00/À,À+À$À#À")
+[15/Apr/2020 02:34:02] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 03:45:15] code 400, message Bad request version ('\x16ó°+ý')
+[15/Apr/2020 03:45:15] "w<W 0\ó°+ý" 400 -
+[15/Apr/2020 03:46:42] code 400, message Bad request version ('À\x14À')
+[15/Apr/2020 03:46:42] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /http:/106.52.184.19:443/manager/html
+[15/Apr/2020 04:58:50] "GET http://106.52.184.19:443/manager/html HTTP/1.1" 404 1725
+----------------------------------------
+Exception happened during processing of request from ('182.254.52.17', 65329)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[15/Apr/2020 05:00:05] code 400, message Bad request version ('À\x14À')
+[15/Apr/2020 05:00:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 05:36:36] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03Hpî\x1eà/HvÒñ\x82\x1dÐð\x95\x16\x99mníÃ5Jt\x11\x12(\x82É\x1f8ù\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[15/Apr/2020 05:36:36] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 07:28:43] code 400, message Bad request version ('À(À$À\x14À')
+[15/Apr/2020 07:28:43] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 07:53:13] code 400, message Bad request version ('À\x14À')
+[15/Apr/2020 07:53:13] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 08:02:07] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03!ð[¯ö_ºÔ\x9a@úÔ\x17;')
+[15/Apr/2020 08:02:07] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 08:58:48] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03Á')
+[15/Apr/2020 08:58:48] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 09:11:05] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03h\x9d*·ú£@I\x99\x99zêüÇl\x85\x06Ë\x03!Æn¾ÖP\x96\x9cº²ÖÜÄ ÷ÄF÷ÒH%ãSgÄígUw\x05zÖ/\x86èCP;B³\x9e\x97¡î¡=\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[15/Apr/2020 09:11:05] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 09:12:03] code 400, message Bad request version ('\x00\x9eÀ(À$À\x14À')
+[15/Apr/2020 09:12:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('119.142.76.19', 52669)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[15/Apr/2020 11:19:39] code 400, message Bad request syntax ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03Au\xad\x85&»ð\x9d\x1eqç÷Õ¿\x1d\x13\x94jÂ\x03\x94\x13\x8b¸;Ð,ú½úF_\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00\t\x00')
+[15/Apr/2020 11:19:39] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 11:19:40] code 400, message Bad request version ('\x00')
+[15/Apr/2020 11:19:40] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 12:51:46] code 400, message Bad HTTP/0.9 request type ('\x04\x01\x00\x19^d´')
+[15/Apr/2020 12:51:46] " ^d´ " 400 -
+[2020-04-15 12:51:46,242] - Broken pipe from ('80.82.65.74', 52108)
+
+[15/Apr/2020 12:52:46] code 400, message Bad request syntax ('\x05\x01\x00')
+[15/Apr/2020 12:52:46] " " 400 -
+[15/Apr/2020 13:00:27] code 400, message Bad request syntax ('\x16\x03\x02\x01o\x01\x00\x01k\x03\x02RHÅ\x1a#÷:Nßâ´\x82/ÿ\tT\x9f§Äy°hÆ\x13\x8c¤\x1c="á\x1a\x98 \x84´,\x85¯nãY»bhlÿ(=\':©\x82ÙoÈ¢×\x93\x98´ï\x80å¹\x90\x00(À')
+[15/Apr/2020 13:00:27] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 16:03:18] code 400, message Bad HTTP/0.9 request type ('\x80F\x01\x00\x02\x00-\x00\x00\x00\x10\x05\x00\x80\x04\x00\x80\x03\x00\x80\x01\x00\x80\x02\x00\x80\x06\x00\x80\x07\x00\x80\x07\x00À\x01\x00\x81\x03\x00\x81\x01\x00\x82\x04\x00\x83@(\x84@\x80\x84\x01\x80\x8fRñ\xad+')
+[15/Apr/2020 16:03:18] "F  -           À    @(@Rñ­+	9È¦2áÜ1-Ç" 400 -
+[15/Apr/2020 16:03:28] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x91\x01\x00\x00\x8d\x03\x01}\x00\x9cí^³')
+[15/Apr/2020 16:03:28] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 16:03:29] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x00\x00M\x01\x00\x00I\x03\x00\x9e(\x958~éP')
+[15/Apr/2020 16:03:29] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 16:03:29] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x91\x01\x00\x00\x8d\x03\x02\x8cýIÁê¿bäçÂÜa±\x14\x8dû\x91\x0e\x00!Â\x8cKÚTe\x0eÿÉ;©')
+[15/Apr/2020 16:03:29] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 16:03:29] code 400, message Bad request syntax ("\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03\x12¼ÿ\x1aê¼WE\x9b¬§z÷Ðm4F\x7f¦q\x00÷G\x83düÆe\x14\x8e_V\x00\x00\x96À,À0\x00£\x00\x9fÌ©Ì¨ÌªÀ¯À\xadÀ£À\x9fÀ]ÀaÀWÀSÀ+À/\x00¢\x00\x9eÀ®À¬À¢À\x9eÀ\\À`ÀVÀRÀ$À(\x00k\x00jÀsÀw\x00Ä\x00ÃÀ#À'\x00g\x00@ÀrÀv\x00¾\x00½À")
+[15/Apr/2020 16:03:29] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 16:03:30] code 400, message Bad request syntax ('\x16\x03\x01\x00è\x01\x00\x00ä\x03\x03\x0b\x17]\x00üçw\x01\tdçv\x97\x9eE\x99¡ßV"<bp~\x1et\x8es\x1d\x99P\x81 ]\x82n/ÙíÖ)¾2*\x95\x07M[\x9d»-dc¹\x1b¼\x8cj\x1fÙC·lýb\x00\x08\x13\x02\x13\x03\x13\x01\x00ÿ\x01\x00\x00\x93\x00\x00\x00\x12\x00\x10\x00\x00\r106.52.184.19\x00\x0b\x00\x04\x03\x00\x01\x02\x00')
+[15/Apr/2020 16:03:30] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 18:48:53] code 400, message Bad request syntax ('\x01D\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00')
+[15/Apr/2020 18:48:53] "D                                                                                                                                                                                                                                                                " 400 -
+[15/Apr/2020 19:04:47] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00\x9a\x01\x00\x00\x96\x03\x03ÆRä¢óÑ,\x9aU¥ÖZ\x83\x0f¿½UÞÀ¢rP#¤¬s\x93z~°dÄ\x00\x00\x1aÀ/À+À\x11À\x07À\x13À')
+[15/Apr/2020 19:04:47] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 19:05:19] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ç ^6Âã*M+\x11d¾\x0b\x14¢\x19\x9dQñÓ\x01\x82£\x95hÐµÑË\x92*Æ ÷\x8cä"WÎ¼´ë\x87NLu\x8a\x08\x19Ô\'hþ\x10k\t\x88ì²P-\x0fVTØ\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[15/Apr/2020 19:05:19] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 19:11:17] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03')
+[15/Apr/2020 19:11:17] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 21:54:58] code 400, message Bad request syntax ('\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03®9wÊ@Å\x93``A\x1a\x95¡\x17kÖK\x97EaµØ\x19\x10Wæg-xô\xad_ deÎx¥\x04?0\x95\x93ÂÌ\x1e»Í\x18R)!Ki\x0eÎ¥&³\x8ab\x95¥ç×\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À')
+[15/Apr/2020 21:54:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 21:54:58] code 400, message Bad request syntax ("\x16\x03\x01\x00î\x01\x00\x00ê\x03\x03ô²\xadA?k\x81ô@\x90\x04s\x16X»ã\x96á0E?\x81?\x13%@ytîm*\x16 >ð,iG'3ÉÔ`Ô÷+\x98\x96õõ'ïf°\x0côû©¤$±?öðo\x00&À/À0À+À,Ì¨Ì©À\x13À\tÀ\x14À")
+[15/Apr/2020 21:54:58] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 22:59:11] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03ÉHQ¼ó÷\x0cÓ±\x9bÞÁÚ\tþAxPä\x1ayðÃs\x85\x08\x9a\x8e#\x06jÔ\x00\x00\x88À0À,À(À$À\x14À')
+[15/Apr/2020 22:59:11] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 22:59:15] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03ãcmjV§d\x81$\x8cÀ/\x14ÖÃL\x18uo\x00P\x0c|ç\x87{\x1e\rÍ½?\x8e\x00\x00\x88À0À,À(À$À\x14À')
+[15/Apr/2020 22:59:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 22:59:15] code 400, message Bad request syntax ('\x16\x03\x01\x00Æ\x01\x00\x00Â\x03\x02\x981$Cí&¹ëÕ\x8cj\x8aCê5\xad¶O¤ÿQýu\x893ñãþyô£0\x00\x00PÀ\x14À')
+[15/Apr/2020 22:59:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 22:59:15] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x00Æ\x01\x00\x00Â\x03\x01h4ÃNi¯ØÎr')
+[15/Apr/2020 22:59:15] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 47626)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+Not Found: /
+[15/Apr/2020 22:59:23] "GET / HTTP/1.1" 404 2047
+----------------------------------------
+Exception happened during processing of request from ('101.251.238.50', 33282)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('49.89.85.216', 38274)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 172, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[15/Apr/2020 23:23:10] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03?_>Òu\x9fFÅ£ïY5%qb\x00\x8e>ÜZàÐñ©¶%]F¿\x94òw\x00\x00ô\x00\x05\x00\x04\x00\x02\x00\x08\x00\x14\x00\x03\x00\x01\x00\x15\x00\x06\x00\x16\x00\x17\x003\x009\x00\x19\x00:\x00\x1a\x00\x18\x005\x00')
+[15/Apr/2020 23:23:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[15/Apr/2020 23:23:10] code 400, message Bad request version ('\x00')
+[15/Apr/2020 23:23:10] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[16/Apr/2020 00:06:52] code 400, message Bad request version ('³y3dYØåúE\x00\x00Ú\x00\x05\x00\x04\x00\x02\x00\x01\x00\x16\x003\x009\x00:\x00\x18\x005\x00')
+[16/Apr/2020 00:06:52] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[16/Apr/2020 00:06:53] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03?nbjnÀcV0\x8bú1NüÕ$o8¤é>')
+[16/Apr/2020 00:06:53] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[16/Apr/2020 00:06:53] "GET / HTTP/1.1" 404 2043
+Not Found: /http:/106.52.184.19:443/ecp/
+[16/Apr/2020 00:16:15] "GET http://106.52.184.19:443/ecp/ HTTP/1.1" 404 1701
+----------------------------------------
+Exception happened during processing of request from ('182.254.52.17', 58513)
+Traceback (most recent call last):
+  File "/usr/lib/python3.6/socketserver.py", line 654, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python3.6/socketserver.py", line 364, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python3.6/socketserver.py", line 724, in __init__
+    self.handle()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 174, in handle
+    self.handle_one_request()
+  File "/home/ubuntu/django/lib/python3.6/site-packages/django/core/servers/basehttp.py", line 182, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/usr/lib/python3.6/socket.py", line 586, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 104] Connection reset by peer
+----------------------------------------
+[16/Apr/2020 00:23:51] code 400, message Bad request version ('À\x14À')
+[16/Apr/2020 00:23:51] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[16/Apr/2020 02:07:37] code 400, message Bad request syntax ('\x16\x03\x01\x00\x8b\x01\x00\x00\x87\x03\x03\x95\x1d\x04Dÿé63ÿ\x9d}\x18\x16©\x8aË\x8dPM\x1dÎD¹_4\x07¹güýA0\x00\x00\x1aÀ/À+À\x11À\x07À\x13À\tÀ\x14À')
+[16/Apr/2020 02:07:37] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+[16/Apr/2020 02:27:25] code 400, message Bad request syntax ('\x05\x01\x00')
+[16/Apr/2020 02:27:25] " " 400 -
