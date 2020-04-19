@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_homefirst"
+        android:icon="@drawable/writing"
+        android:title="@string/menu_first"
+        android:tooltipText="drr" />
+
+    <item
+        android:id="@+id/navigation_homesecond"
+        android:icon="@drawable/history"
+        android:title="@string/menu_second" />
+
+    <item
+        android:id="@+id/navigation_homefourth"
+        android:icon="@drawable/profile"
+        android:title="@string/menu_third" />
+</menu>

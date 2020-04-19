@@ -52,7 +52,7 @@ public class WritingActivity extends AppCompatActivity {
     private ImageButton bt_finish;
     private ImageButton bt_clear;
     private ImageView view_test;
-    private String result_json;
+    private TextView text_info;
     private TextView text_target;
     Queue<String> chars = new LinkedList<>();
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -64,11 +64,12 @@ public class WritingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_writing);
 
-        writingPad = (MyWritingPad) findViewById(R.id.writing_pad);
-        bt_finish = (ImageButton) findViewById(R.id.button_finish);
-        bt_clear = (ImageButton) findViewById(R.id.button_clear);
-        view_test = (ImageView) findViewById(R.id.imageView_test);
-        text_target = (TextView) findViewById(R.id.text_target);
+        writingPad = findViewById(R.id.writing_pad);
+        bt_finish = findViewById(R.id.button_finish);
+        bt_clear = findViewById(R.id.button_clear);
+        view_test = findViewById(R.id.imageView_test);
+        text_target = findViewById(R.id.text_target);
+        text_info = findViewById(R.id.text_info);
         final int image_size = 64;
         // TextView character = (TextView) this.findViewById(R.id.textView2);
         // character.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/simkai.ttf"));
@@ -112,27 +113,11 @@ public class WritingActivity extends AppCompatActivity {
                 targetBitmap.compress(Bitmap.CompressFormat.PNG, 100, output2);
                 byte[] targetImageBytes = output2.toByteArray();
 
-                if (targetImageBytes.equals(writingImageBytes))
-                    Log.d("http2", "target == writing");
-                else
-                    Log.d("http2", "target != writing");
-                //PostMan测试
                 try {
-                    postImg("http://106.52.184.19:443/writingLearner/recognize_char/",
-                            writingImageBytes, targetImageBytes);
+                    postImg(writingImageBytes, targetImageBytes);
                 } catch (JSONException | IOException e) {
                     e.printStackTrace();
                 }
-                while (result_json == null) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                Log.d("http2", result_json);
-                Toast.makeText(WritingActivity.this, unescapeJava(result_json),
-                        Toast.LENGTH_SHORT).show();
 
                 try {
                     File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "data.my");
@@ -146,21 +131,20 @@ public class WritingActivity extends AppCompatActivity {
                 }
 
                 // 绘图验证
-                Bitmap baseBitmap = Bitmap.createBitmap(view_test.getWidth(), view_test.getHeight(), Bitmap.Config.ARGB_8888);
-                //Bitmap baseBitmap = targetBitmap;
-                Canvas canvas = new Canvas(baseBitmap);
-                canvas.drawColor(Color.WHITE);
-                Paint p = new Paint();
-                p.setColor(Color.BLACK);
-                for (int j = 0; j < paths.size(); j++)
-                    for (int i = 0; i < paths.get(j).size() - 1; i++) {
-                        canvas.drawLine(paths.get(j).get(i).x, paths.get(j).get(i).y, paths.get(j).get(i + 1).x, paths.get(j).get(i + 1).y, p);
-                    }
-                view_test.setImageBitmap(baseBitmap);
-                view_test.setVisibility(View.VISIBLE);
+//                Bitmap baseBitmap = Bitmap.createBitmap(view_test.getWidth(), view_test.getHeight(), Bitmap.Config.ARGB_8888);
+//                //Bitmap baseBitmap = targetBitmap;
+//                Canvas canvas = new Canvas(baseBitmap);
+//                canvas.drawColor(Color.WHITE);
+//                Paint p = new Paint();
+//                p.setColor(Color.BLACK);
+//                for (int j = 0; j < paths.size(); j++)
+//                    for (int i = 0; i < paths.get(j).size() - 1; i++) {
+//                        canvas.drawLine(paths.get(j).get(i).x, paths.get(j).get(i).y, paths.get(j).get(i + 1).x, paths.get(j).get(i + 1).y, p);
+//                    }
+//                view_test.setImageBitmap(baseBitmap);
+//                view_test.setVisibility(View.VISIBLE);
 
                 targetNext();
-                result_json = null;
             }
         });
 
@@ -168,6 +152,7 @@ public class WritingActivity extends AppCompatActivity {
             writingPad.clear();
             writingPad.clean_paths();
             view_test.setVisibility(View.GONE);
+            text_info.setText("");
             Toast.makeText(WritingActivity.this, "清理完成",
                     Toast.LENGTH_SHORT).show();
         });
@@ -223,28 +208,14 @@ public class WritingActivity extends AppCompatActivity {
         chars.add("交");
     }
 
-    @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 1) {
-                Log.d("http2", "SUCCESS");
-                String json = (String) msg.obj;
-                result_json = json;
-            }
-        }
-
-    };
-
-    public void postImg(String url, byte[] imgWrittenData, byte[] targetImageBytes) throws JSONException, IOException {
+    public void postImg(byte[] imgWrittenData, byte[] targetImageBytes) throws JSONException, IOException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("img_written", Base64.encodeToString(imgWrittenData, Base64.DEFAULT));
         jsonObject.put("img_target", Base64.encodeToString(targetImageBytes, Base64.DEFAULT));
         jsonObject.put("strokes", "");
         String json = jsonObject.toString();
         RequestBody body = RequestBody.create(JSON, json);
-        HttpUtil.sendPostRequest(url, body, new okhttp3.Callback() {
+        HttpUtil.sendPostRequest("writingLearner/recognize_char/", body, new okhttp3.Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {
@@ -255,21 +226,10 @@ public class WritingActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 assert response.body() != null;
                 String res_json = response.body().string();
-                Message message = Message.obtain();
-                message.obj = res_json;
-                message.what = 1;
-                handler.handleMessage(message);
+                Log.d("http3", res_json);
+                text_info.setText(unescapeJava(res_json));
             }
         });
     }
 
-    private void parseJsonWithJsonObject(Response response, String result) throws IOException {
-        assert response.body() != null;
-        result = response.body().string();
-    }
-
-
-    private void parseJSONObject(String jsonData) {
-        Log.d("http2", jsonData);
-    }
 }

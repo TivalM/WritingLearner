@@ -6,15 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-
     <Button
         android:id="@+id/button_start"
-        android:layout_width="133dp"
-        android:layout_height="72dp"
-        android:text="@string/button_start"
+        android:layout_width="164dp"
+        android:layout_height="94dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+    <!--    <FrameLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        tools:ignore="MissingConstraints">-->
+<!--    </FrameLayout>-->
+
+<!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+<!--        android:id="@+id/navigationView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="#FFFFFF"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:menu="@menu/navigation">-->
+
+<!--    </com.google.android.material.bottomnavigation.BottomNavigationView>-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

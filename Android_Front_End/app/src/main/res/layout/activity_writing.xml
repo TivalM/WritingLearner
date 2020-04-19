@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:layout_constraintVertical_bias="0.293">
+        app:layout_constraintVertical_bias="0.665">
 
         <ImageButton
             android:id="@+id/button_finish"
@@ -84,15 +84,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/clear" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView"-->
-    <!--        android:layout_width="317dp"-->
-    <!--        android:layout_height="320dp"-->
-    <!--        android:contentDescription="@string/cell_name"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="0.345"-->
-    <!--        app:srcCompat="@drawable/cell" />-->
+    <TextView
+        android:id="@+id/text_info"
+        android:layout_width="344dp"
+        android:layout_height="67dp"
+        android:text="TextView"
+        android:textColor="#00BCD4"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
