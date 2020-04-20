@@ -24,7 +24,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/text_account"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -32,6 +32,16 @@
                 android:text="@string/hint1"
                 android:textColor="#000000"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_login_account"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/editText_account"
@@ -51,7 +61,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/text_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -78,7 +88,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/text_nickname"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
@@ -87,6 +97,16 @@
                 android:textColor="#000000"
                 android:textSize="20sp"
                 tools:ignore="NestedWeights" />
+
+            <TextView
+                android:id="@+id/text_login_nickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/editText_nickname"
@@ -101,59 +121,103 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        app:layout_constraintVertical_bias="0.326">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.854">
 
         <Button
             android:id="@+id/bt_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="@string/hint_log" />
+            android:gravity="center"
+            android:text="@string/hint_log"
+            android:textColor="#787678"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bt_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="35dp"
             android:layout_weight="1"
-            android:text="@string/hint_register" />
+            android:gravity="center"
+            android:text="@string/hint_register"
+            android:textColor="#787678"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/bt_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="35dp"
             android:layout_weight="1"
-            android:text="@string/hint_comfirm" />
+            android:gravity="center"
+            android:text="@string/hint_comfirm"
+            android:textColor="#ECE8E8"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:theme="@style/ConfirmButton" />
+
+        <Button
+            android:id="@+id/bt_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/hint_logout"
+            android:textColor="#ECE8E8"
+            android:textStyle="bold"
+            android:theme="@style/LogoutButton" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/imageView_head"
-        android:layout_width="151dp"
-        android:layout_height="151dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/head_boy"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.101" />
 
     <TextView
         android:id="@+id/text_welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="欢迎使用手写学习软件"
-        android:textColor="#673AB7"
+        android:text="@string/hint_welcome"
+        android:textColor="#7C52C8"
         android:textSize="28sp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_head"
-        tools:layout_editor_absoluteX="64dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_head" />
+
+    <TextView
+        android:id="@+id/text_profile"
+        android:layout_width="262dp"
+        android:layout_height="27dp"
+        android:gravity="center"
+        android:textColor="@color/alarm"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_welcome"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

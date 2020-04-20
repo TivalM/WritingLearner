@@ -149,7 +149,7 @@ public class WritingActivity extends AppCompatActivity {
         });
 
         bt_clear.setOnClickListener(v -> {
-            writingPad.clear();
+                writingPad.clear();
             writingPad.clean_paths();
             view_test.setVisibility(View.GONE);
             text_info.setText("");

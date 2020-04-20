@@ -7,5 +7,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="ConfirmButton" parent="ThemeOverlay.AppCompat">
+        <item name="colorButtonNormal">@color/mainTheme</item>
+    </style>
+    <style name="LogoutButton" parent="ThemeOverlay.AppCompat">
+        <item name="colorButtonNormal">@color/alarm</item>
+    </style>
 </resources>

@@ -1,9 +1,9 @@
 import datetime
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
-
+from django.utils import timezone
 # Create your views here.
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST, require_GET, require_http_methods
@@ -28,8 +28,7 @@ def register(request):
         new_user = User(account=account, name=name, password=password)
         new_user.save()
         init_json = init_history(new_user.id)
-        login_json = login_helper(account, password)
-        data = {"state": 0, "description": "Register Success", "init state": init_json, "login state": login_json}
+        data = {"state": 0, "description": "Register Success", "init state": init_json}
         in_json = json.dumps(data)
     return HttpResponse(in_json)
 
@@ -43,12 +42,13 @@ def login(request):
 
 
 def login_helper(account, password):
+    print("Looking for " + account + " with " + password)
     user = User.objects.filter(account=account)
     if user.exists() and user[0].password == password:
         cookie = hash(account)
+        # login_time = datetime.datetime.now()
         login_time = datetime.datetime.now()
-        old_session = Sessions.objects.filter(key=account)
-        if not old_session.exists():
+        if not Sessions.objects.filter(key=account).exists():
             # create session
             session = Sessions(key=account, data=cookie, updated_time=login_time)
             session.save()
@@ -58,7 +58,7 @@ def login_helper(account, password):
             session.data = cookie
             session.updated_time = login_time
             session.save()
-        data = {"state": 0, "cookie": cookie, "description": "Login in Success"}
+        data = {"state": 0, "cookie": cookie, "description": user[0].name}
         in_json = json.dumps(data)
     elif not user.exists():
         data = {"state": 1, "description": "Account not exist"}
@@ -104,7 +104,8 @@ def authentic(request):
     try:
         session = Sessions.objects.get(key=account, data=cookie)
         time_now = datetime.datetime.now()
-        time_last = session.updated_time.replace(tzinfo=None) + datetime.timedelta(hours=8)
+        # time_last = session.updated_time.replace(tzinfo=None) + timezone.timedelta(hours=8)
+        time_last = session.updated_time
         print(time_now, time_last)
         print(time_now - time_last)
         if (time_now - time_last).seconds < 3600:
@@ -127,10 +128,29 @@ def get_history(request):
     result = authentic(request)
     if result is not True:
         return result
-    received_json_data = result
-    data = {"state": 0, "description": "data"}
-    in_json = json.dumps(data)
-    return HttpResponse(in_json)
+    user = User.objects.get(account=request.GET.get("account"))
+    histories = History.objects.filter(belongs_to_user=user) \
+        .values(
+        "related_to_char__id",
+        "related_to_char__itself",
+        "learning_state")
+    print(list(histories[:3]))
+    return JsonResponse({"state": 0, "data": list(histories[:3])})
+
+
+@require_GET
+def change_learning_state(request):
+    result = authentic(request)
+    if result is not True:
+        return result
+    char_id = request.GET.get("char_id")
+    state = request.GET.get("state")
+    user = User.objects.get(account=request.GET.get("account"))
+
+    history_entry = History.objects.get(belongs_to_user=user, related_to_char=char_id)
+    history_entry.learning_state = state
+    history_entry.save()
+    return JsonResponse({"state": 0, "description": "Update Success"})
 
 
 def init_history(user_id):
@@ -142,5 +162,3 @@ def init_history(user_id):
     data = {"state": 0, "description": "Init Success"}
     in_json = json.dumps(data)
     return in_json
-
- 
