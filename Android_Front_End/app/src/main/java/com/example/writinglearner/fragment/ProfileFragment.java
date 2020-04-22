@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.writinglearner.HttpUtil;
 import com.example.writinglearner.R;
 import com.example.writinglearner.activity.MainActivity;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -32,10 +34,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
+import okhttp3.Callback;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import static com.example.writinglearner.activity.MainActivity.JSON;
+import static org.apache.commons.lang3.StringEscapeUtils.unescapeJava;
 
 public class ProfileFragment extends Fragment {
     private Button bt_login;
@@ -52,6 +56,7 @@ public class ProfileFragment extends Fragment {
     private EditText et_account;
     private EditText et_password;
     private EditText et_nickname;
+    private ProgressBar loading_bar;
     private String cookie_stored;
     //    private String account;
 //    private String password;
@@ -72,6 +77,7 @@ public class ProfileFragment extends Fragment {
         bt_register = getActivity().findViewById(R.id.bt_register);
         bt_confirm = getActivity().findViewById(R.id.bt_confirm);
         bt_logout = getActivity().findViewById(R.id.bt_logout);
+        loading_bar = getActivity().findViewById(R.id.loading_bar);
         imageView_head = getActivity().findViewById(R.id.imageView_head);
         et_account = getActivity().findViewById(R.id.editText_account);
         et_password = getActivity().findViewById(R.id.editText_password);
@@ -92,6 +98,7 @@ public class ProfileFragment extends Fragment {
         bt_logout.setVisibility(View.GONE);
         hint_nickname.setVisibility(View.GONE);
         et_nickname.setVisibility(View.GONE);
+        loading_bar.setVisibility(View.INVISIBLE);
     }
 
     private void bindButton() {
@@ -116,6 +123,7 @@ public class ProfileFragment extends Fragment {
                 String password = et_password.getText().toString();
                 if (!account.equals("") && !password.equals("")) {
                     login(account, password);
+
                     //TODO页面切换和更新
                 } else
                     Toast.makeText(getActivity(), "请输入必要信息", Toast.LENGTH_SHORT).show();
@@ -126,6 +134,10 @@ public class ProfileFragment extends Fragment {
                 String nickname = et_nickname.getText().toString();
                 if (!account.equals("") && !password.equals("") && !nickname.equals("")) {
                     try {
+                        loading_bar.setVisibility(View.VISIBLE);
+                        text_profile.setText("正在分配账户，注册成功后将自动登录");
+                        if (((MainActivity) mainActivity).isGlobalClickable())
+                            ((MainActivity) mainActivity).changeGlobalClickableSate();
                         register(account, password, nickname);
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -182,12 +194,8 @@ public class ProfileFragment extends Fragment {
                             bt_logout.setVisibility(View.GONE);
                         }
                     });
-                    //向主线程重置Cookie
-                    cookie_stored = "";
-                    Message cookie_mag = new Message();
-                    cookie_mag.obj = "";
-                    cookie_mag.what = 0;
-                    handler.sendMessage(cookie_mag);
+                    //重置系统
+                    ((MainActivity) mainActivity).logout_system();
                 } else {
                     handler.post(new Runnable() {
                         @Override
@@ -225,12 +233,15 @@ public class ProfileFragment extends Fragment {
                 String desc = jsonObject.get("description").getAsString();
                 Handler handler = ((MainActivity) mainActivity).getMainHandler();
                 if (state == 0) {
-                    String welcome = "注册成功，使用用户 " + nickname + " 登陆";
+//                  String welcome = "注册成功，使用用户 " + nickname + " 登陆";
                     //更新Ui
                     handler.post(() -> {
+                        loading_bar.setVisibility(View.INVISIBLE);
+                        if (!((MainActivity) mainActivity).isGlobalClickable())
+                            ((MainActivity) mainActivity).changeGlobalClickableSate();
                         et_nickname.setVisibility(View.GONE);
                         text_nickname.setText(nickname);
-                        text_profile.setText(welcome);
+//                        text_profile.setText(welcome);
                     });
                     login(account, password);
                 } else {
@@ -269,7 +280,7 @@ public class ProfileFragment extends Fragment {
                 Log.d("http3", res_json);
                 Handler handler = ((MainActivity) mainActivity).getMainHandler();
                 if (state == 0) {
-                    String welcome = "欢迎 " + desc;
+                    String welcome = "欢迎 " + desc + " 正在同步历史";
                     //更新Ui
                     handler.post(() -> {
                         flushEditText();
@@ -293,14 +304,55 @@ public class ProfileFragment extends Fragment {
                     cookie_mag.obj = cookie_stored;
                     cookie_mag.what = 0;
                     handler.sendMessage(cookie_mag);
+                    //登录后更新历史
+                    if (((MainActivity) mainActivity).isGlobalClickable())
+                        ((MainActivity) mainActivity).changeGlobalClickableSate();
+                    Log.d("history", account + cookie_stored);
+                    if (!account.equals("") && !cookie_stored.equals("")) {
+                        initHistory(account, cookie_stored);
+                    }
                 } else {
                     handler.post(() -> {
-//                        flushEditText();
                         text_profile.setText(desc);
                     });
                 }
             }
         });
+    }
+
+    private void initHistory(String account, String cookie) {
+        //获取Charset
+        Log.d("history", "history getting");
+        Map<String, String> headers = new HashMap<>();
+        Log.d("history", account + cookie);
+        headers.put("account", account);
+        headers.put("cookie", cookie);
+        HttpUtil.sendGetRequest("users/get_charset", headers, new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                text_profile.setText("获取历史失败");
+                Log.d("history", "history Failure");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                assert response.body() != null;
+                Log.d("history", "history get");
+                String res_json = unescapeJava(response.body().string());
+                Log.d("history", res_json);
+//                String res_json = response.body().toString();
+                JsonObject result = new JsonParser().parse(res_json).getAsJsonObject();
+                int state = result.get("state").getAsInt();
+                if (state == 0) {
+                    JsonArray charset = result.getAsJsonArray("data");
+                    ((MainActivity) mainActivity).initCharset(charset);
+                }
+
+            }
+        });
+
+        //获取用户历史
+//        ((MainActivity) mainActivity).changeGlobalClickableSate();
     }
 
     private void flushEditText() {

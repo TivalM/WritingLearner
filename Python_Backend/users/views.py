@@ -1,5 +1,6 @@
 import datetime
 import json
+import pickle
 
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -135,7 +136,25 @@ def get_history(request):
         "related_to_char__itself",
         "learning_state")
     print(list(histories[:3]))
-    return JsonResponse({"state": 0, "data": list(histories[:3])})
+    response = {"state": 0, "data": list(histories[:3])}
+    in_json = json.dumps(response)
+    return HttpResponse(in_json)
+
+
+@require_GET
+def get_charset(request):
+    f = open('writingLearner/model/src/char_dict', 'br')
+    dict = pickle.load(f)
+    chars_used = [v for v in sorted(dict.keys())][:600]
+    # ['一', '丁', '七', '万', '丈', ... ,]
+    data = []
+    for i in range(0, 600):
+        entry = {"id": i + 1, "itself": chars_used[i], "learning_state": "Not Learned"}
+        data.append(entry)
+    response = {"state": 0, "data": data}
+    in_json = json.dumps(response)
+    return HttpResponse(in_json)
+    # [{"1": "一"}, {"2": "丁"}, ...]
 
 
 @require_GET
@@ -150,7 +169,9 @@ def change_learning_state(request):
     history_entry = History.objects.get(belongs_to_user=user, related_to_char=char_id)
     history_entry.learning_state = state
     history_entry.save()
-    return JsonResponse({"state": 0, "description": "Update Success"})
+    response = {"state": 0, "description": "Update Success"}
+    in_json = json.dumps(response)
+    return HttpResponse(in_json)
 
 
 def init_history(user_id):

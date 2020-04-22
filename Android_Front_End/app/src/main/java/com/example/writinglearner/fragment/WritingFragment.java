@@ -1,9 +1,11 @@
 package com.example.writinglearner.fragment;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.PointF;
+import android.icu.math.BigDecimal;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Base64;
@@ -11,12 +13,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,8 +25,9 @@ import com.example.writinglearner.HttpUtil;
 import com.example.writinglearner.MyWritingPad;
 import com.example.writinglearner.R;
 import com.example.writinglearner.activity.MainActivity;
-import com.example.writinglearner.activity.WritingActivity;
 import com.github.gcacace.signaturepad.views.SignaturePad;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,12 +36,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 import okhttp3.Call;
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.Response;
@@ -53,11 +50,14 @@ public class WritingFragment extends Fragment {
     private MyWritingPad writingPad;
     private ImageButton bt_finish;
     private ImageButton bt_clear;
-    private ImageView view_test;
     private TextView text_info;
     private TextView text_target;
-    Queue<String> chars = new LinkedList<>();
+    private TextView text_parse;
+    private Activity mainActivity;
+    private String jsonResponse;
 
+    int learning_char_id; //id = charset下标 + 1
+    int writing_state;
     public static final int imageSize = 128;
     OkHttpClient client = new OkHttpClient();
 
@@ -69,98 +69,157 @@ public class WritingFragment extends Fragment {
 
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        mainActivity = getActivity();
 
         writingPad = getActivity().findViewById(R.id.writing_pad);
         bt_finish = getActivity().findViewById(R.id.button_finish);
         bt_clear = getActivity().findViewById(R.id.button_clear);
-        view_test = getActivity().findViewById(R.id.imageView_test);
         text_target = getActivity().findViewById(R.id.text_target);
         text_info = getActivity().findViewById(R.id.text_info);
-        final int image_size = 64;
+        text_parse = getActivity().findViewById(R.id.text_prase);
         setPad();
         bindButton();
-        initCharacters();
-        targetNext();
-
+        initWritingPanel();
     }
 
-    private void targetNext() {
-        if (chars.isEmpty()) {
-            initCharacters();
-        }
-        text_target.setText(chars.poll());
+    public void initWritingPanel() {
+        jsonResponse = "";
+        learning_char_id = -1; //id = charset下标 + 1
+        text_target.setText("");
+        writing_state = 0;
+        bt_clear.setClickable(false);
+        bt_finish.setClickable(false);
+    }
+
+    public void learnSpecificChar(int id, String characterItself) {
+        ((MainActivity) mainActivity).updateHistory("learning");
+        text_target.setText(characterItself);
+        learning_char_id = id;
+        jsonResponse = "";
+        writing_state = 0;
+        bt_clear.setClickable(true);
+        bt_finish.setClickable(true);
+        text_parse.setText("第一步：描红");
+    }
+
+    public void flushStateToNextParse() {
+        jsonResponse = "";
+        writingPad.clear();
     }
 
     private void bindButton() {
 
-        bt_finish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String[] PERMISSIONS_STORAGE = {
-                        "android.permission.READ_EXTERNAL_STORAGE",
-                        "android.permission.WRITE_EXTERNAL_STORAGE"};
-                //获取标的图片
-                Bitmap targetBitmap = targetTextViewToImage(text_target);
-                // 获取手写图片
-                Bitmap writingBitmap = writingPad.getSignatureBitmap();
-
-                writingBitmap = Bitmap.createScaledBitmap(writingBitmap, imageSize,
-                        imageSize, true);
-                targetBitmap = Bitmap.createScaledBitmap(targetBitmap, imageSize,
-                        imageSize, true);
-                // 获取笔画信息
-                List<List<PointF>> paths = writingPad.getPaths();
-
-                ByteArrayOutputStream output1 = new ByteArrayOutputStream();
-                ByteArrayOutputStream output2 = new ByteArrayOutputStream();
-                writingBitmap.compress(Bitmap.CompressFormat.PNG, 100, output1);
-                byte[] writingImageBytes = output1.toByteArray();
-                targetBitmap.compress(Bitmap.CompressFormat.PNG, 100, output2);
-                byte[] targetImageBytes = output2.toByteArray();
-
-                try {
-                    postImg(writingImageBytes, targetImageBytes);
-                } catch (JSONException | IOException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "data.my");
-
-                    FileOutputStream fos = new FileOutputStream(file);
-                    fos.write(writingImageBytes);
-                    fos.flush();
-                    fos.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-                // 绘图验证
-//                Bitmap baseBitmap = Bitmap.createBitmap(view_test.getWidth(), view_test.getHeight(), Bitmap.Config.ARGB_8888);
-//                //Bitmap baseBitmap = targetBitmap;
-//                Canvas canvas = new Canvas(baseBitmap);
-//                canvas.drawColor(Color.WHITE);
-//                Paint p = new Paint();
-//                p.setColor(Color.BLACK);
-//                for (int j = 0; j < paths.size(); j++)
-//                    for (int i = 0; i < paths.get(j).size() - 1; i++) {
-//                        canvas.drawLine(paths.get(j).get(i).x, paths.get(j).get(i).y, paths.get(j).get(i + 1).x, paths.get(j).get(i + 1).y, p);
-//                    }
-//                view_test.setImageBitmap(baseBitmap);
-//                view_test.setVisibility(View.VISIBLE);
-
-                targetNext();
+        bt_finish.setOnClickListener(v -> {
+            boolean isCorrect = false;
+            switch (writing_state) {
+                case 0:
+                    //描红
+                    try {
+                        isCorrect = CharacterRecognize();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (isCorrect) {
+                        //进入下一阶段：重复练习
+                        writing_state = 1;
+                        text_parse.setText("第二步：重复练习");
+                    }
+                    break;
+                case 1:
+                    //重复练习
+                    try {
+                        isCorrect = CharacterRecognize();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (isCorrect) {
+                        //进入下一阶段：无提示练习
+                        writing_state = 2;
+                        text_target.setVisibility(View.INVISIBLE);
+                        text_parse.setText("第三步：无提示练习");
+                    }
+                    break;
+                case 2:
+                    //描红
+                    try {
+                        isCorrect = CharacterRecognize();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if (isCorrect) {
+                        //正确，提交记录
+                        text_parse.setText("成功！您已完成该字符的练习，请选择其它字符");
+                        ((MainActivity) mainActivity).updateHistory("finished");
+                    }
+                    break;
             }
+            flushStateToNextParse();
         });
 
         bt_clear.setOnClickListener(v -> {
             writingPad.clear();
             writingPad.clean_paths();
-            view_test.setVisibility(View.GONE);
             text_info.setText("");
-//            Toast.makeText(MainActivity.this, "清理完成",
-//                    Toast.LENGTH_SHORT).show();
         });
+    }
+
+    private boolean CharacterRecognize() throws InterruptedException {
+        //获取标的图片
+        Bitmap targetBitmap = targetTextViewToImage(text_target);
+        // 获取手写图片
+        Bitmap writingBitmap = writingPad.getSignatureBitmap();
+
+        writingBitmap = Bitmap.createScaledBitmap(writingBitmap, imageSize,
+                imageSize, true);
+        targetBitmap = Bitmap.createScaledBitmap(targetBitmap, imageSize,
+                imageSize, true);
+        // 获取笔画信息
+        List<List<PointF>> paths = writingPad.getPaths();
+
+        ByteArrayOutputStream output1 = new ByteArrayOutputStream();
+        ByteArrayOutputStream output2 = new ByteArrayOutputStream();
+        writingBitmap.compress(Bitmap.CompressFormat.PNG, 100, output1);
+        byte[] writingImageBytes = output1.toByteArray();
+        targetBitmap.compress(Bitmap.CompressFormat.PNG, 100, output2);
+        byte[] targetImageBytes = output2.toByteArray();
+
+        try {
+            postImg(writingImageBytes, targetImageBytes);
+        } catch (JSONException | IOException e) {
+            e.printStackTrace();
+        }
+        int count = 0;
+        while (jsonResponse.equals("") && count < 300) {
+            Thread.sleep(10);
+            count++;
+        }
+        if (count == 300 || count > 3000)
+            return false;
+        JsonObject jsonObject = (JsonObject) new JsonParser().parse(jsonResponse).getAsJsonObject();
+        String character = jsonObject.get("char").getAsString();
+        double similarity = jsonObject.get("similarity").getAsDouble();
+        BigDecimal bg = new BigDecimal(similarity);
+        double similarity_pretty = bg.setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
+        if (character.equals(text_target.getText().toString())) {
+            String info = "您书写的 “" + character + "” 字正确，相似度为 " + similarity_pretty;
+            text_info.setText(info);
+            return true;
+        } else {
+            String info = "书写错误，您书写的好像是 “" + character + "” 字";
+            text_info.setText(info);
+            return false;
+        }
+
+//        try {
+//            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + "data.my");
+//
+//            FileOutputStream fos = new FileOutputStream(file);
+//            fos.write(writingImageBytes);
+//            fos.flush();
+//            fos.close();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     private Bitmap targetTextViewToImage(TextView textView) {
@@ -207,13 +266,13 @@ public class WritingFragment extends Fragment {
         });
     }
 
-    private void initCharacters() {
-        chars.add("且");
-        chars.add("世");
-        chars.add("交");
-    }
+//    private void initCharacters() {
+//        if (!((MainActivity) mainActivity).getCharset().isEmpty()) {
+//            charset = ((MainActivity) mainActivity).getCharset();
+//        }
+//    }
 
-    public void postImg(byte[] imgWrittenData, byte[] targetImageBytes) throws JSONException, IOException {
+    private void postImg(byte[] imgWrittenData, byte[] targetImageBytes) throws JSONException, IOException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("img_written", Base64.encodeToString(imgWrittenData, Base64.DEFAULT));
         jsonObject.put("img_target", Base64.encodeToString(targetImageBytes, Base64.DEFAULT));
@@ -232,7 +291,7 @@ public class WritingFragment extends Fragment {
                 assert response.body() != null;
                 String res_json = response.body().string();
                 Log.d("http3", res_json);
-                text_info.setText(unescapeJava(res_json));
+                jsonResponse = unescapeJava(res_json);
             }
         });
     }

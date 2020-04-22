@@ -71,29 +71,31 @@
             app:srcCompat="@drawable/clear" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView_test"
-        android:layout_width="362dp"
-        android:layout_height="351dp"
-        android:layout_marginBottom="224dp"
-        android:scaleType="centerInside"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/clear" />
-
     <TextView
         android:id="@+id/text_info"
         android:layout_width="344dp"
         android:layout_height="67dp"
-        android:text="TextView"
+        android:gravity="center_horizontal"
+        android:text="请在登陆后选择要练习的字"
         android:textColor="#00BCD4"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <TextView
+        android:id="@+id/text_prase"
+        android:layout_width="205dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textColor="@color/alarm"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
