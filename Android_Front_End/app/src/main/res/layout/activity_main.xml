@@ -6,15 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-
-    <Button
-        android:id="@+id/button_start"
-        android:layout_width="133dp"
-        android:layout_height="72dp"
-        android:text="@string/button_start"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="#FFFFFF"
+        app:itemTextColor="#03A9F4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation" />
+
+    <fragment
+        android:id="@+id/fragment_empty"
+        android:name="com.example.writinglearner.fragment.EmptyFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

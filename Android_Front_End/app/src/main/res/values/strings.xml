@@ -5,4 +5,15 @@
     <string name="cell_name">田字格</string>
     <string name="img_clear">img_clear</string>
     <string name="img_finish">img_finish</string>
+    <string name="menu_first">书写</string>
+    <string name="menu_second">历史</string>
+    <string name="menu_third">我的</string>
+    <string name="hint1">账号</string>
+    <string name="hint_pw">密码</string>
+    <string name="hint_nkn">昵称</string>
+    <string name="hint_log">登陆</string>
+    <string name="hint_register">注册</string>
+    <string name="hint_comfirm">确认</string>
+    <string name="hint_welcome">欢迎使用手写学习软件</string>
+    <string name="hint_logout">注销</string>
 </resources>
