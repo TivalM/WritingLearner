@@ -1,5 +1,6 @@
 package com.example.writinglearner.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -7,14 +8,16 @@ import android.graphics.Color;
 import android.graphics.PointF;
 import android.icu.math.BigDecimal;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,8 +36,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class WritingFragment extends Fragment {
     private TextView text_parse;
     private Activity mainActivity;
     private String jsonResponse;
-
+    private WebView webView;
     int learning_char_id; //id = charset下标 + 1
     int writing_state;
     public static final int imageSize = 128;
@@ -77,32 +78,53 @@ public class WritingFragment extends Fragment {
         text_target = getActivity().findViewById(R.id.text_target);
         text_info = getActivity().findViewById(R.id.text_info);
         text_parse = getActivity().findViewById(R.id.text_prase);
+        webView = getActivity().findViewById(R.id.webView);
+        WebView.setWebContentsDebuggingEnabled(true);
         setPad();
         bindButton();
         initWritingPanel();
+        initWebView();
     }
 
-    public void initWritingPanel() {
+    //    @SuppressLint("JavascriptInterface")
+    private void initWebView() {
+
+        //支持App内部javascript交互
+        webView.getSettings().setJavaScriptEnabled(true);
+        //设置不可缩放
+        webView.getSettings().setSupportZoom(false);
+        //设置是否出现缩放工具
+        webView.getSettings().setBuiltInZoomControls(false);
+        webView.loadUrl("file:///android_asset/character.html");
+
+    }
+
+    private void initWritingPanel() {
         jsonResponse = "";
         learning_char_id = -1; //id = charset下标 + 1
         text_target.setText("");
         writing_state = 0;
-        bt_clear.setClickable(false);
+        bt_clear.setClickable(true);
         bt_finish.setClickable(false);
     }
 
     public void learnSpecificChar(int id, String characterItself) {
-        ((MainActivity) mainActivity).updateHistory("learning");
+        ((MainActivity) mainActivity).updateHistoryWhenWriting("LR");
+        text_info.setVisibility(View.VISIBLE);
         text_target.setText(characterItself);
+        text_target.setVisibility(View.INVISIBLE);
         learning_char_id = id;
         jsonResponse = "";
-        writing_state = 0;
+        writing_state = -1;
         bt_clear.setClickable(true);
         bt_finish.setClickable(true);
-        text_parse.setText("第一步：描红");
+        text_parse.setText("请观察写法");
+        text_info.setText("");
+        webView.setVisibility(View.VISIBLE);
+        webView.loadUrl("javascript:learnSpecificChar(\"" + characterItself + "\")");
     }
 
-    public void flushStateToNextParse() {
+    private void flushStateToNextParse() {
         jsonResponse = "";
         writingPad.clear();
     }
@@ -112,6 +134,13 @@ public class WritingFragment extends Fragment {
         bt_finish.setOnClickListener(v -> {
             boolean isCorrect = false;
             switch (writing_state) {
+                case -1:
+                    //播放动画
+                    writing_state = 0;
+                    text_parse.setText("第一步：描红");
+                    text_target.setVisibility(View.VISIBLE);
+                    webView.setVisibility(View.INVISIBLE);
+                    break;
                 case 0:
                     //描红
                     try {
@@ -149,7 +178,7 @@ public class WritingFragment extends Fragment {
                     if (isCorrect) {
                         //正确，提交记录
                         text_parse.setText("成功！您已完成该字符的练习，请选择其它字符");
-                        ((MainActivity) mainActivity).updateHistory("finished");
+                        ((MainActivity) mainActivity).updateHistoryWhenWriting("FD");
                     }
                     break;
             }
@@ -265,12 +294,6 @@ public class WritingFragment extends Fragment {
             }
         });
     }
-
-//    private void initCharacters() {
-//        if (!((MainActivity) mainActivity).getCharset().isEmpty()) {
-//            charset = ((MainActivity) mainActivity).getCharset();
-//        }
-//    }
 
     private void postImg(byte[] imgWrittenData, byte[] targetImageBytes) throws JSONException, IOException {
         JSONObject jsonObject = new JSONObject();

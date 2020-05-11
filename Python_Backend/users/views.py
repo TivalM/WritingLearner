@@ -3,6 +3,7 @@ import json
 import pickle
 
 from django.http import HttpResponse, JsonResponse
+from django.db.models import F
 from django.shortcuts import render
 from django.utils import timezone
 # Create your views here.
@@ -131,12 +132,14 @@ def get_history(request):
         return result
     user = User.objects.get(account=request.GET.get("account"))
     histories = History.objects.filter(belongs_to_user=user) \
+        .exclude(learning_state="NL") \
+        .annotate(char_id=F("related_to_char__id"), char_itself=F("related_to_char__itself")) \
         .values(
-        "related_to_char__id",
-        "related_to_char__itself",
-        "learning_state")
-    print(list(histories[:3]))
-    response = {"state": 0, "data": list(histories[:3])}
+        "char_id",
+        "char_itself",
+        "learning_state") \
+    # print(list(histories[:3]))
+    response = {"state": 0, "data": list(histories)}
     in_json = json.dumps(response)
     return HttpResponse(in_json)
 
@@ -149,7 +152,7 @@ def get_charset(request):
     # ['一', '丁', '七', '万', '丈', ... ,]
     data = []
     for i in range(0, 600):
-        entry = {"id": i + 1, "itself": chars_used[i], "learning_state": "Not Learned"}
+        entry = {"char_id": i + 1, "char_itself": chars_used[i], "learning_state": "NL"}
         data.append(entry)
     response = {"state": 0, "data": data}
     in_json = json.dumps(response)

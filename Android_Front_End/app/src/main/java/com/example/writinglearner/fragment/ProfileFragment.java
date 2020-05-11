@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
@@ -250,6 +249,9 @@ public class ProfileFragment extends Fragment {
                         public void run() {
                             flushEditText();
                             text_profile.setText(desc);
+                            loading_bar.setVisibility(View.INVISIBLE);
+                            if (!((MainActivity) mainActivity).isGlobalClickable())
+                                ((MainActivity) mainActivity).changeGlobalClickableSate();
                         }
                     });
                 }
@@ -280,7 +282,7 @@ public class ProfileFragment extends Fragment {
                 Log.d("http3", res_json);
                 Handler handler = ((MainActivity) mainActivity).getMainHandler();
                 if (state == 0) {
-                    String welcome = "欢迎 " + desc + " 正在同步历史";
+                    String welcome = "欢迎 " + desc;
                     //更新Ui
                     handler.post(() -> {
                         flushEditText();
@@ -300,10 +302,14 @@ public class ProfileFragment extends Fragment {
                     });
                     //向主线程传递Cookie
                     cookie_stored = jsonObject.get("cookie").getAsString();
-                    Message cookie_mag = new Message();
-                    cookie_mag.obj = cookie_stored;
-                    cookie_mag.what = 0;
-                    handler.sendMessage(cookie_mag);
+                    Message cookie_msg = new Message();
+                    cookie_msg.obj = cookie_stored;
+                    cookie_msg.what = 1;
+                    handler.sendMessage(cookie_msg);
+                    Message account_msg = new Message();
+                    account_msg.obj = account;
+                    account_msg.what = 2;
+                    handler.sendMessage(account_msg);
                     //登录后更新历史
                     if (((MainActivity) mainActivity).isGlobalClickable())
                         ((MainActivity) mainActivity).changeGlobalClickableSate();
@@ -344,15 +350,41 @@ public class ProfileFragment extends Fragment {
                 JsonObject result = new JsonParser().parse(res_json).getAsJsonObject();
                 int state = result.get("state").getAsInt();
                 if (state == 0) {
-                    JsonArray charset = result.getAsJsonArray("data");
-                    ((MainActivity) mainActivity).initCharset(charset);
+                    JsonArray charsetJson = result.getAsJsonArray("data");
+                    ((MainActivity) mainActivity).initCharset(charsetJson);
                 }
 
             }
         });
 
         //获取用户历史
-//        ((MainActivity) mainActivity).changeGlobalClickableSate();
+        HttpUtil.sendGetRequest("users/get_history", headers, new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                text_profile.setText("获取个人历史失败");
+                Log.d("history", "personal history Failure");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                assert response.body() != null;
+                Log.d("history", "personal history get");
+                String res_json = unescapeJava(response.body().string());
+                Log.d("history", res_json);
+                JsonObject result = new JsonParser().parse(res_json).getAsJsonObject();
+                int state = result.get("state").getAsInt();
+                if (state == 0) {
+                    JsonArray historyJson = result.getAsJsonArray("data");
+                    try {
+                        ((MainActivity) mainActivity).updatePersonalHistory(historyJson);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+        });
+
     }
 
     private void flushEditText() {

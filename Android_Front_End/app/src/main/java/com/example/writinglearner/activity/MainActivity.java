@@ -23,17 +23,21 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import okhttp3.Call;
 import okhttp3.MediaType;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigationBar;
@@ -49,9 +53,11 @@ public class MainActivity extends AppCompatActivity {
 
     private String user_account;
     private String nickname;
+
+
     private String user_cookie;
 
-    private EachCharacter learningChar;
+    private EachCharacter learningChar = null;
     private List<EachCharacter> charset;
 
     @SuppressLint("HandlerLeak")
@@ -60,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case 1:
-                    Log.i("handler", "第一个消息是：" + msg.obj);
+                    user_cookie = msg.obj.toString();
                     break;
 
                 case 2:
-                    Log.i("handler", "第二个消息是：" + msg.obj);
+                    user_account = msg.obj.toString();
                     break;
             }
         }
@@ -113,12 +119,26 @@ public class MainActivity extends AppCompatActivity {
             historyFragment.initCharas();
     }
 
+    public void updatePersonalHistory(JsonArray json) throws InterruptedException {
+        while (charset.size() < 600)
+            Thread.sleep(10);
+        Gson gson = new Gson();
+        json.forEach((dt) ->
+        {
+            if (dt.isJsonObject()) {
+                EachCharacter entry = gson.fromJson(dt, EachCharacter.class);
+                charset.get(entry.getId() - 1).changeStateTo(entry.getLearning_state());
+                historyFragment.freshSpecificCharacter(entry.getId());
+            }
+        });
+    }
+
     public void logout_system() {
         isGlobalClickable = true;
         user_account = "";
         user_cookie = "";
         charset = new ArrayList<>(600);
-
+        learningChar = null;
     }
 
     public void notifyLearnSpecificChar(EachCharacter c) {
@@ -130,18 +150,40 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void updateHistory(String state) {
-        charset.get(learningChar.getId()).changeStateTo(state);
+    public void changeStateInCharset(int id, String state) {
+        charset.get(id - 1).changeStateTo(state);
+        historyFragment.freshSpecificCharacter(id - 1);
+    }
+
+    public void updateHistoryWhenWriting(String state) {
+        changeStateInCharset(learningChar.getId(), state);
+        //TO DO 刷新UI
         Map<String, String> headers = new HashMap<>();
         Log.d("history", "update history");
+        headers.put("account", user_account);
+        headers.put("cookie", user_cookie);
         headers.put("char_id", String.valueOf(learningChar.getId()));
-        if (state.equals("Not Learned"))
-            headers.put("state", "NL");
-        else if(state.equals("Learning"))
-            headers.put("state", "LR");
-        else if(state.equals("finished"))
-            headers.put("state", "LR");
-        HttpUtil.sendGetRequest("users/change_learning_state/", );
+        if (state.equals("LR") || state.equals("FD"))
+            headers.put("state", state);
+        HttpUtil.sendGetRequest("users/change_learning_state/", headers, new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("history", "Update Failure");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                assert response.body() != null;
+                String res_json = response.body().string();
+                Log.d("history", res_json);
+                JsonObject jsonObject = new JsonParser().parse(res_json).getAsJsonObject();
+                int state = jsonObject.get("state").getAsInt();
+                if (state == 0) {
+                    Log.d("history", "Update Success");
+                } else
+                    Log.d("history", "Update Failure");
+            }
+        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mNavigationListener =
@@ -191,6 +233,10 @@ public class MainActivity extends AppCompatActivity {
 
     public EachCharacter getLearningChar() {
         return learningChar;
+    }
+
+    public void setUser_cookie(String user_cookie) {
+        this.user_cookie = user_cookie;
     }
 
     public void changeGlobalClickableSate() {
