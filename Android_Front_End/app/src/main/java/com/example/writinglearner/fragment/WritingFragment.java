@@ -59,7 +59,7 @@ public class WritingFragment extends Fragment {
     private WebView webView;
     int learning_char_id; //id = charset下标 + 1
     int writing_state;
-    public static final int imageSize = 128;
+    public static final int imageSize = 64;
     OkHttpClient client = new OkHttpClient();
 
     @Nullable
