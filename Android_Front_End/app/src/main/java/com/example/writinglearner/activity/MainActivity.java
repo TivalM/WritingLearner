@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         json.forEach((dt) ->
         {
             if (dt.isJsonObject()) {
-                EachCharacter entry = gson.fromJson(dt, EachCharacter.class);
+                EachCharacter entry = gson.fromJson(dt, EachCharacter.class);//利用JSON文本生成对象
                 charset.get(entry.getId() - 1).changeStateTo(entry.getLearning_state());
                 historyFragment.freshSpecificCharacter(entry.getId());
             }
@@ -217,26 +217,6 @@ public class MainActivity extends AppCompatActivity {
 
     public List<EachCharacter> getCharset() {
         return charset;
-    }
-
-    public String getUser_account() {
-        return user_account;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public String getUser_cookie() {
-        return user_cookie;
-    }
-
-    public EachCharacter getLearningChar() {
-        return learningChar;
-    }
-
-    public void setUser_cookie(String user_cookie) {
-        this.user_cookie = user_cookie;
     }
 
     public void changeGlobalClickableSate() {

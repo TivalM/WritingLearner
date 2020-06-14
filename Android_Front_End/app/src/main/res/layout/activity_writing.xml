@@ -96,8 +96,8 @@
 
     <TextView
         android:id="@+id/text_prase"
-        android:layout_width="205dp"
-        android:layout_height="24dp"
+        android:layout_width="332dp"
+        android:layout_height="21dp"
         android:gravity="center"
         android:textColor="@color/alarm"
         android:textSize="16sp"

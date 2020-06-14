@@ -60,6 +60,7 @@ public class WritingFragment extends Fragment {
     int learning_char_id; //id = charset下标 + 1
     int writing_state;
     public static final int imageSize = 64;
+    int tryTime = 0;
     OkHttpClient client = new OkHttpClient();
 
     @Nullable
@@ -71,7 +72,6 @@ public class WritingFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mainActivity = getActivity();
-
         writingPad = getActivity().findViewById(R.id.writing_pad);
         bt_finish = getActivity().findViewById(R.id.button_finish);
         bt_clear = getActivity().findViewById(R.id.button_clear);
@@ -103,7 +103,7 @@ public class WritingFragment extends Fragment {
         jsonResponse = "";
         learning_char_id = -1; //id = charset下标 + 1
         text_target.setText("");
-        writing_state = 0;
+        writing_state = -1;
         bt_clear.setClickable(true);
         bt_finish.setClickable(false);
     }
@@ -137,6 +137,7 @@ public class WritingFragment extends Fragment {
                 case -1:
                     //播放动画
                     writing_state = 0;
+                    tryTime = 0;
                     text_parse.setText("第一步：描红");
                     text_target.setVisibility(View.VISIBLE);
                     webView.setVisibility(View.INVISIBLE);
@@ -179,6 +180,12 @@ public class WritingFragment extends Fragment {
                         //正确，提交记录
                         text_parse.setText("成功！您已完成该字符的练习，请选择其它字符");
                         ((MainActivity) mainActivity).updateHistoryWhenWriting("FD");
+                    } else if (++tryTime > 2) {
+                        text_parse.setText("您已连续错误三次，请观察标的字并描红");
+                        text_info.setText("");
+                        tryTime = 0;
+                        writing_state = 1;
+                        text_target.setVisibility(View.VISIBLE);
                     }
                     break;
             }
@@ -187,7 +194,7 @@ public class WritingFragment extends Fragment {
 
         bt_clear.setOnClickListener(v -> {
             writingPad.clear();
-            writingPad.clean_paths();
+//            writingPad.clean_paths();
             text_info.setText("");
         });
     }
@@ -203,7 +210,7 @@ public class WritingFragment extends Fragment {
         targetBitmap = Bitmap.createScaledBitmap(targetBitmap, imageSize,
                 imageSize, true);
         // 获取笔画信息
-        List<List<PointF>> paths = writingPad.getPaths();
+//        List<List<PointF>> paths = writingPad.getPaths();
 
         ByteArrayOutputStream output1 = new ByteArrayOutputStream();
         ByteArrayOutputStream output2 = new ByteArrayOutputStream();
@@ -273,7 +280,7 @@ public class WritingFragment extends Fragment {
     private void setPad() {
         writingPad.setMaxWidth(12);
         writingPad.setMinWidth(8);
-        writingPad.setVelocityFilterWeight(0.6f);
+        writingPad.setVelocityFilterWeight(0.9f);
 
         writingPad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
@@ -289,8 +296,8 @@ public class WritingFragment extends Fragment {
 
             @Override
             public void onClear() {
-                bt_clear.setEnabled(false);
-                bt_finish.setEnabled(false);
+                bt_clear.setEnabled(true);
+                bt_finish.setEnabled(true);
             }
         });
     }

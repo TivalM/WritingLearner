@@ -20,13 +20,16 @@ import com.github.gcacace.signaturepad.views.SignaturePad;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyWritingPad extends SignaturePad {
+public class MyWritingPad extends SignaturePad{
     private List<List<PointF>> paths = new ArrayList<>();
     private List<PointF> path = new ArrayList<>();
     private int history_total_num = 0;
 
     public MyWritingPad(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setMaxWidth(50);
+        setMinWidth(1);
+        setVelocityFilterWeight(0.99f);
     }
 
     @SuppressLint("ClickableViewAccessibility")
