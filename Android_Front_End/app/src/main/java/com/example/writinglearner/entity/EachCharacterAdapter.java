@@ -46,6 +46,11 @@ public class EachCharacterAdapter extends RecyclerView.Adapter<EachCharacterAdap
         eachCharacters = charaList;
     }
 
+    public void setFilter(List<EachCharacter> chars) {
+        eachCharacters = chars;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -67,6 +72,7 @@ public class EachCharacterAdapter extends RecyclerView.Adapter<EachCharacterAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        //position = index = id-1
         EachCharacter eachCharacter = eachCharacters.get(position);
         holder.text_id.setText(String.valueOf(eachCharacter.getId()));
         holder.text_itself.setText(eachCharacter.getItself());

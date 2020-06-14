@@ -32,12 +32,14 @@ def similarity_calculator(target, writing):
     norms = []
     for image in images:
         vector = []
+        # print(image.getdata())
         for pixel_tuple in image.getdata():
             vector.append(average(pixel_tuple))
+        # print(vector.__len__(), vector)
         vectors.append(vector)
         norms.append(linalg.norm(vector, 2))
     a, b = vectors
     a_norm, b_norm = norms
-    res = dot(a / a_norm, b / b_norm)
+    res = dot(a, b) / (a_norm * b_norm)
 
     return res

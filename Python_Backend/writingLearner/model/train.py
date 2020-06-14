@@ -20,7 +20,6 @@ epochs = 300
 IMG_HEIGHT = 64
 IMG_WIDTH = 64
 
-
 # 定义数据生成器
 train_image_generator = ImageDataGenerator(rescale=1. / 255,
                                            rotation_range=20)  # Generator for our training data
@@ -41,7 +40,7 @@ val_data_gen = validation_image_generator.flow_from_directory(directory=testData
 
 # 定义两个回调
 early_stop = tf.keras.callbacks.EarlyStopping(
-    monitor='val_loss', min_delta=0.0001, patience=7, verbose=0, mode='auto',
+    monitor='val_loss', min_delta=0.001, patience=7, verbose=0, mode='auto',
     baseline=None, restore_best_weights=True
 )
 
@@ -55,26 +54,26 @@ def create_model():
 
     model.add(layers.Conv2D(32, (3, 3), input_shape=(IMG_WIDTH, IMG_HEIGHT, 1),
                             padding='same', strides=(1, 1), name='conv1'))
-    model.add(BatchNormalization(axis=-1))
+    model.add(BatchNormalization(axis=-1, name='batchNorm1'))
     model.add(Activation('relu'))
-    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same'))
+    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same', name='maxpool1'))
 
     model.add(layers.Conv2D(48, (3, 3), input_shape=(IMG_WIDTH, IMG_HEIGHT, 1),
                             padding='same', strides=(1, 1), name='conv2'))
-    model.add(BatchNormalization(axis=-1))
+    model.add(BatchNormalization(axis=-1, name='batchNorm2'))
     model.add(Activation('relu'))
-    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same'))
+    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same', name='maxpool2'))
 
     model.add(layers.Conv2D(64, (3, 3), input_shape=(IMG_WIDTH, IMG_HEIGHT, 1),
                             padding='same', strides=(1, 1), name='conv3'))
-    model.add(BatchNormalization(axis=-1))
+    model.add(BatchNormalization(axis=-1, name='batchNorm3'))
     model.add(Activation('relu'))
-    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same'))
+    model.add(layers.MaxPool2D(pool_size=(2, 2), padding='same', name='maxpool3'))
 
     model.add(layers.Flatten())
-    model.add(layers.Dense(720))
+    model.add(layers.Dense(720, name='dense1'))
     model.add(layers.Dropout(rate=0.4))
-    model.add(layers.Dense(600, activation='softmax'))
+    model.add(layers.Dense(600, activation='softmax', name='dense2'))
 
     # model for 100w 64
     # model = tf.keras.Sequential([
@@ -93,6 +92,7 @@ def create_model():
 
 # 编译模型
 new_model = create_model()
+# print(new_model.summary())
 # new_model.set_weights(weights)
 Adam = tf.keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999,
                                 epsilon=None, decay=0.0, amsgrad=False)
@@ -110,5 +110,3 @@ history = new_model.fit_generator(
     callbacks=[DetailsControl(), TrainingMonitor(jsonPath=jsonPath), reduce_lr]
     # callbacks=[DetailsControl(), early_stop, TrainingMonitor(jsonPath=jsonPath), reduce_lr]
 )
-
-
